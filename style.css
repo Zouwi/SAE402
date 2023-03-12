@@ -1,3 +1,23 @@
+/* CLASSE COMMUNE  */
+.apparition {
+    display: block;
+}
+
+.disparu {
+    display: none;
+}
+
+.pointer {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    width: 30px;
+}
+
+/* .boite>* {
+    display: none;
+} */
+
 /* ACCUEIL DU JEU  */
 
 body {
@@ -74,7 +94,7 @@ h1 {
     box-shadow: 4px 5px 0px #402505;
 }
 
-.boutonTapis > a {
+.boutonTapis>a {
     text-decoration: none;
     margin: auto;
 }
@@ -87,8 +107,81 @@ h1 {
 
 .titre {
     font-family: 'Cinzel', serif;
-    color:#402505;
+    color: #402505;
     padding: 20px;
     margin: auto;
     font-size: 18pt;
+}
+
+/* INTRO  */
+.intro {
+    background-image: url(img/BACKGROUND/bancBG.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    transition: 2s;
+}
+
+.title {
+    font-family: 'cinzel', serif;
+    margin: auto;
+    font-size: 20pt;
+    padding: 20px;
+}
+
+.boite {
+    background: #FFFEF7;
+    width: 80%;
+    margin: 60% auto;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    border: 3px solid #402505;
+    transition: 2s;
+}
+
+.texte {
+    font-family: 'Arvo', serif;
+    margin: auto;
+    padding: 0px 20px 40px 20px;
+}
+
+.orneDore1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.orneDore2 {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 0px;
+    left: 0px;
+}
+
+.boite2 {
+    background: #FFFEF7;
+    width: 80%;
+    margin: 60% auto;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    border: 3px solid #402505;
+    transition: 2s;
+}
+
+/* Animation de l'icon de pointer  */
+@keyframes bouge {
+    0% {
+        transform: translate(100px, 150px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+.main {
+    animation: bouge 1s linear infinite alternate;
 }
