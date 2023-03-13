@@ -1,17 +1,24 @@
 /* CLASSE COMMUNE  */
 .apparition {
+    opacity: 1;
     display: block;
 }
 
 .disparu {
+    opacity: 0;
     display: none;
 }
 
+.disparu2 {
+    opacity: 0;
+}
+
+
 .pointer {
     position: absolute;
-    right: 30px;
-    bottom: 10px;
-    width: 30px;
+    right: 10px;
+    bottom: 0px;
+    width: 50px;
 }
 
 /* .boite>* {
@@ -120,7 +127,6 @@ h1 {
     background-size: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    transition: 2s;
 }
 
 .title {
@@ -138,7 +144,7 @@ h1 {
     position: relative;
     text-align: center;
     border: 3px solid #402505;
-    transition: 2s;
+    transition: 1s;
 }
 
 .texte {
@@ -151,6 +157,7 @@ h1 {
     position: absolute;
     top: 0px;
     right: 0px;
+    width: 113px;
 }
 
 .orneDore2 {
@@ -158,9 +165,24 @@ h1 {
     transform: rotate(180deg);
     bottom: 0px;
     left: 0px;
+    width: 113px;
+}
+
+.orneDore3 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.orneDore4 {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 0px;
+    left: 0px;
 }
 
 .boite2 {
+    top: 0px;
     background: #FFFEF7;
     width: 80%;
     margin: 60% auto;
@@ -168,7 +190,7 @@ h1 {
     position: relative;
     text-align: center;
     border: 3px solid #402505;
-    transition: 2s;
+    transition: 1s;
 }
 
 /* Animation de l'icon de pointer  */
@@ -184,4 +206,28 @@ h1 {
 
 .main {
     animation: bouge 1s linear infinite alternate;
+}
+
+/* FENETRE DE CHEMIN OU MARCHE  */
+.chemin {
+    margin: 0px;
+    background-image: url(img/BACKGROUND/pexels-pixabay-235985.jpg);
+    background-position: 0px;
+    background-repeat: no-repeat;
+}
+
+.chemin > div {
+    margin-top: 70px;
+}
+
+.ptitTexte {
+    font-family: 'Arvo', serif;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px 20px 20px 20px;
+    color: #402505;
+    background-color: #FFFEF7;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 4px 5px 0px #402505;
 }

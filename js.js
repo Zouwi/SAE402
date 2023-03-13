@@ -1,15 +1,30 @@
+// VARIABLE DE INTRO
+let boiteIntro = document.querySelector(".boite");
+let boiteIntro2 = document.querySelector(".boite2");
+
 // Boite qui apparait avec délai
 setTimeout(() => {
-    document.querySelector(".boite").classList.add("apparition");
-    document.querySelector(".boite").classList.remove("disparu");
-}, 1000)
+    boiteIntro.classList.add("apparition");
+    boiteIntro.classList.remove("disparu2");
+}, 800)
 
 //   Changement de texte 
 document.querySelector(".intro").addEventListener("click", dialogueIntro);
 
 function dialogueIntro() {
-    document.querySelector(".boite2").classList.add("apparition");
-    document.querySelector(".boite2").classList.remove("disparu");
-    document.querySelector(".boite").classList.add("disparu");
-    document.querySelector(".boite").classList.remove("apparition");
+    boiteIntro2.classList.add("apparition");
+    boiteIntro2.classList.remove("disparu");
+    boiteIntro.classList.add("disparu");
+    boiteIntro.classList.remove("apparition");
 }
+
+
+// if (boiteIntro.classList.contains("disparu")) {
+//     boiteIntro.style.display = "none";
+// }
+
+// VARIABLE DE MARCHE
+
+// animation des pas
+
+document.querySelector(".pied1").classList.add("disparu");
