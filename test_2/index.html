@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test 2</title>
+</head>
+<style>
+    .bouteille{
+        width : 100px;
+        height: 400px;
+        background-color: grey;
+       display: flex;
+       flex-direction: column-reverse;
+    }
+    .bille{
+        width : 100px;
+        height : 100px;
+        border-radius : 100%;
+        transform-origin: center;
+        background-color: red;
+    }
+
+
+
+</style>
+<body>
+
+    <div class="bouteille">
+        <div class="bille1 bille"></div>
+        <div class="bille2 bille"></div>
+        <div class="bille3 bille"></div>
+    </div>
+
+
+
+<script>
+    document.querySelectorAll(".bille").forEach(e=>{
+        e.addEventListener("touchstart", DragAndDrop);
+        // e.addEventListener("mousedown", DragAndDrop);
+    })
+
+
+    function DragAndDrop(){
+        console.log("salut");
+        console.log(this.clientX);
+        // this.style.position=touch.clientX;
+    }
+
+</script>    
+</body>
+</html>
