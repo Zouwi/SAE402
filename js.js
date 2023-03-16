@@ -18,6 +18,12 @@ function dialogueIntro() {
     boiteIntro.classList.remove("apparition");
 }
 
+// Changement de page 
+document.querySelector(".intro").addEventListener("click", changePage);
+
+function changePage() {
+    
+}
 
 // if (boiteIntro.classList.contains("disparu")) {
 //     boiteIntro.style.display = "none";
