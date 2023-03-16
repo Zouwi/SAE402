@@ -1,0 +1,140 @@
+/* CLASSE COMMUNE  */
+.apparition {
+    display: block;
+}
+
+.disparu {
+    display: none;
+}
+
+.disparu2 {
+    opacity: 0;
+}
+
+
+.pointer {
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    width: 50px;
+}
+
+
+
+.main {
+    animation: bouge 1s linear infinite alternate;
+}
+
+/* Animation pointer  */
+@keyframes bouge {
+    0% {
+        transform: translate(100px, 150px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+
+.jeu2 {
+    background: url(/img/BACKGROUND/PlaceReunion2.jpg);
+    background-size: cover;
+    background-position: 0 -140px;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow: hidden;
+}
+
+.perso {
+    position: absolute;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+}
+
+.player {
+    width: 65%;
+    bottom: 0px;
+    position: fixed;
+    z-index: 0;
+}
+
+.oldMan {
+    width: 65%;
+    transform: scaleX(-1);
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 0;
+}
+
+.parentBoite {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+
+.name {
+    font-family: 'Arvo', serif;
+    background-color: #FFFEF7;
+    border: 2px solid #402505;
+    box-shadow: 3px 3px 0px #402505;
+    padding: 1% 30% 1% 3%;
+    display: inline-block;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 195px;
+    left: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.boite {
+    background: #FFFEF7;
+    width: 100%;
+    height: 19%;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    bottom: 50px;
+    left: 0px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+}
+
+.texte {
+    padding: 30px;
+    display: none;
+}
+
+.orneDore1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 113px;
+}
+
+.orneDore2 {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 0px;
+    left: 0px;
+    width: 113px;
+}
+
+.show {
+    display: block;
+    z-index: 2;
+}
+
+.assombrir {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.189), rgba(0, 0, 0, 0.189));
+}
