@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .droppable {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.draggable {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: move;
+}
+
+    </style>
+</head>
+<body>
+    <div class="droppable" id="destination1"></div>
+    <div class="droppable" id="destination2"></div>
+    <div class="draggable" id="source"></div>
+
+    <script>
+        const draggable = document.querySelector('.draggable');
+const droppables = document.querySelectorAll('.droppable');
+
+let isDragging = false;
+let currentDroppable = null;
+
+draggable.addEventListener('mousedown', (event) => {
+  isDragging = true;
+  const initialX = event.clientX;
+  const initialY = event.clientY;
+
+  const drag = (event) => {
+    const offsetX = event.clientX - initialX;
+    const offsetY = event.clientY - initialY;
+
+    draggable.style.left = draggable.offsetLeft + offsetX + 'px';
+    draggable.style.top = draggable.offsetTop + offsetY + 'px';
+  };
+
+  const stopDrag = () => {
+    isDragging = false;
+
+    if (currentDroppable) {
+      if (currentDroppable.id === 'destination1') {
+        alert('Bravo ! Vous avez réussi !');
+      } else {
+        draggable.style.left = '0';
+        draggable.style.top = '0';
+      }
+    } else {
+      draggable.style.left = '0';
+      draggable.style.top = '0';
+    }
+
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+  };
+
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+});
+
+droppables.forEach((droppable) => {
+  droppable.addEventListener('mouseover', () => {
+    if (isDragging) {
+      currentDroppable = droppable;
+    }
+  });
+
+  droppable.addEventListener('mouseout', () => {
+    if (isDragging) {
+      currentDroppable = null;
+    }
+  });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            }
+
+            .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+            border: 1px solid black;
+            background-color: white;
+            cursor: move;
+            }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+        <li class="item">Item 4</li>
+    </ul>
+      <script>
+            const list = document.querySelector('.list');
+            const items = document.querySelectorAll('.item');
+            let draggingItem = null;
+
+            // Fonction pour détecter si l'événement vient d'un appareil tactile
+            const isTouchEvent = (event) => {
+            return event.type.startsWith('touch');
+            };
+
+            // Fonction pour détecter l'élément HTML correspondant à l'événement
+            const getEventItem = (event) => {
+            if (isTouchEvent(event)) {
+                return event.touches[0].target.closest('.item');
+            } else {
+                return event.target.closest('.item');
+            }
+            };
+
+            // Fonction pour activer le drag and drop sur un élément HTML
+            const makeItemDraggable = (item) => {
+            // Ajout des gestionnaires d'événements pour le drag and drop
+            item.addEventListener('mousedown', handleDragStart);
+            item.addEventListener('touchstart', handleDragStart, { passive: false });
+            item.addEventListener('mouseup', handleDragEnd);
+            item.addEventListener('touchend', handleDragEnd, { passive: false });
+            item.addEventListener('mousemove', handleDragMove);
+            item.addEventListener('touchmove', handleDragMove, { passive: false });
+            };
+
+            // Fonction pour désactiver le drag and drop sur un élément HTML
+            const makeItemUndraggable = (item) => {
+            // Suppression des gestionnaires d'événements pour le drag and drop
+            item.removeEventListener('mousedown', handleDragStart);
+            item.removeEventListener('touchstart', handleDragStart);
+            item.removeEventListener('mouseup', handleDragEnd);
+            item.removeEventListener('touchend', handleDragEnd);
+            item.removeEventListener('mousemove', handleDragMove);
+            item.removeEventListener('touchmove', handleDragMove);
+            };
+
+            // Fonction pour gérer le début du drag and drop
+            const handleDragStart = (event) => {
+            draggingItem = getEventItem(event);
+            draggingItem.classList.add('dragging');
+            };
+
+            // Fonction pour gérer la fin du drag and drop
+            const handleDragEnd = (event) => {
+            if (draggingItem) {
+                draggingItem.classList.remove('dragging');
+                const targetItem = getEventItem(event);
+                if (targetItem && targetItem !== draggingItem) {
+                const draggingIndex = Array.from(items).indexOf(draggingItem);
+                const targetIndex = Array.from(items).indexOf(targetItem);
+                if (draggingIndex < targetIndex) {
+                    targetItem.insertAdjacentElement('afterend', draggingItem);
+                } else {
+                    targetItem.insertAdjacentElement('beforebegin', draggingItem);
+                }
+                }
+                draggingItem = null;
+            }
+            };
+
+            // Fonction pour gérer le mouvement de l'élément en cours de drag and drop
+            const handleDragMove = (event) => {
+            if (draggingItem) {
+                event.preventDefault();
+                const clientX = isTouchEvent(event) ? event.touches[0].clientX : event.clientX;
+                const clientY = isTouchEvent(event) ? event.touches[0].clientY : event.clientY;
+                const offsetX = clientX - draggingItem.getBoundingClientRect().left;
+                const offsetY = clientY - draggingItem.getBoundingClientRect().top;
+                draggingItem.style.transform = `translate(${clientX - offsetX}px, ${clientY - offsetY}px)`;
+            }
+            };
+
+            // Activation du drag and drop pour tous les éléments de la liste
+            items.forEach(makeItemDraggable);
+
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.tube-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.tube {
+  position: relative;
+  width: 100px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 50px;
+}
+
+.ball {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: move;
+}
+
+    </style>
+</head>
+<body>
+    <div class="tube-container">
+  <div class="tube" id="tube1">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+  <div class="tube" id="tube2"></div>
+</div>
+
+<script>
+    const tube1 = document.getElementById("tube1");
+const tube2 = document.getElementById("tube2");
+let draggingBall = null;
+
+const makeBallDraggable = (ball) => {
+  ball.addEventListener("mousedown", startDrag);
+  ball.addEventListener("touchstart", startDrag, { passive: false });
+};
+
+const makeBallUndraggable = (ball) => {
+  ball.removeEventListener("mousedown", startDrag);
+  ball.removeEventListener("touchstart", startDrag, { passive: false });
+};
+
+const startDrag = (event) => {
+  draggingBall = event.target;
+  draggingBall.style.zIndex = "999";
+  document.body.addEventListener("mousemove", handleDragMove);
+  document.body.addEventListener("touchmove", handleDragMove, { passive: false });
+  document.body.addEventListener("mouseup", endDrag);
+  document.body.addEventListener("touchend", endDrag, { passive: false });
+};
+
+const endDrag = () => {
+  draggingBall.style.zIndex = "";
+  const targetTube = getTargetTube();
+  if (targetTube && targetTube !== tube1 && targetTube.childElementCount < 3) {
+    targetTube.appendChild(draggingBall);
+    if (tube1.childElementCount === 0) {
+      alert("Bravo, vous avez réussi !");
+    }
+  } else {
+    tube1.appendChild(draggingBall);
+  }
+  draggingBall = null;
+  document.body.removeEventListener("mousemove", handleDragMove);
+  document.body.removeEventListener("touchmove", handleDragMove, { passive: false });
+  document.body.removeEventListener("mouseup", endDrag);
+  document.body.removeEventListener("touchend", endDrag, { passive: false });
+};
+
+const handleDragMove = (event) => {
+  if (draggingBall) {
+    event.preventDefault();
+    const clientX = isTouchEvent(event) ? event.touches[0].clientX : event.clientX;
+    const clientY = isTouchEvent(event) ? event.touches[0].clientY : event.clientY;
+    draggingBall.style.transform = `translate(${clientX}px, ${clientY}px)`;
+  }
+};
+
+const getTargetTube = () => {
+  const ballRect = draggingBall.getBoundingClientRect();
+  const tube1Rect = tube1.getBoundingClientRect();
+  const tube2Rect = tube2.getBoundingClientRect();
+  if (ballRect.left > tube1Rect.left && ballRect.right < tube1Rect.right && ballRect.top > tube1Rect.top && ballRect.bottom < tube1Rect.bottom) {
+    return tube1;
+  } else if (ballRect.left > tube2Rect.left && ballRect.right < tube2Rect.right && ballRect.top> tube2Rect.top && ballRect.bottom < tube2Rect.bottom) {
+return tube2;
+} else {
+return null;
+}
+};
+
+const isTouchEvent = (event) => {
+return event.touches && event.touches.length;
+};
+
+const init = () => {
+const balls = document.querySelectorAll(".ball");
+balls.forEach((ball) => {
+makeBallDraggable(ball);
+});
+};
+
+init();
+
+</script>
+</body>
+</html>
