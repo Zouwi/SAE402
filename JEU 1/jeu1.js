@@ -4,8 +4,6 @@ let compteur = 0;
 document.querySelector(".boite").addEventListener("click", dialogue);
 
 function dialogue() {
-    // affichage des textes 
-
     // affichage du nom 
     document.querySelector(".name").innerHTML = data[compteur].bulle;
 
@@ -15,12 +13,14 @@ function dialogue() {
     //     document.querySelector(".froggySad").classList.add("disparu");
     //     document.querySelector(".froggy").classList.remove("disparu");
     // }
+    document.querySelector(".devant").classList.remove("devant");
+
     if (data[compteur].invisible) {
         data[compteur].invisible.forEach(e => {
             document.querySelector(e).classList.add("disparu");
         });
     }
-
+    
     data[compteur].visible.forEach(e => {
         document.querySelector(e).classList.add("devant");
         document.querySelector(e).classList.remove("disparu");

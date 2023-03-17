@@ -4,17 +4,15 @@ let compteur = 0;
 document.querySelector(".boite").addEventListener("click", dialogue);
 
 function dialogue() {
-    // affichage des textes 
-   // document.querySelector(".texte").innerHTML = data[compteur].texte;
 
     // affichage du nom 
     document.querySelector(".name").innerHTML = data[compteur].bulle;
 
     // Mettre en highlight
-    // if (data[0].visible ==".oldMan") {
-    //     document.querySelector(".player").classList.remove("devant");
-    // }
+
     document.querySelector(".devant").classList.remove("devant");
+
+    // Afficher le texte 
     data[compteur].visible.forEach(e => {
         document.querySelector(e).classList.add("devant");
         document.querySelector(e).classList.remove("disparu");
