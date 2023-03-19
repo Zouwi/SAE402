@@ -1,9 +1,8 @@
 // Localisation GPS 
-let jeu1 = "47.7445154, 7.3352095";
 
 // navigator.geolocation.watchPosition(updatePosition);
 
-console.log(getLocationUpdate());
+
 // function updatePosition(pos){
 //    console.log(pos.coords);
 //    if (pos.coords == jeu1 * 10) {
@@ -28,9 +27,12 @@ var geoLoc;
 function showLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    let cibleL = "49.2929024";
-    let ciblel = "6.0751872";
-    if (latitude == cibleL && longitude == ciblel) {
+    let cibleX = 47.74428694412362;
+    let cibleY = 7.33568686370776;
+    let margeX = (47.74429780432605 - 47.744292340461335)/2;
+    let margeY = (7.33569646834205 - 7.33566396664148)/2;
+    if (-margeX < latitude < margeX && -margeY < longitude < margeY) {
+        // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
     }
 }
@@ -55,5 +57,5 @@ function getLocationUpdate() {
         alert("Sorry, browser does not support geolocation!");
     }
 }
-
+getLocationUpdate()
 
