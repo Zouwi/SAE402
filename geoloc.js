@@ -29,9 +29,10 @@ function showLocation(position) {
     var longitude = position.coords.longitude;
     let cibleX = 47.74428694412362;
     let cibleY = 7.33568686370776;
-    let margeX = (47.74429780432605 - 47.744292340461335)/2;
-    let margeY = (7.33569646834205 - 7.33566396664148)/2;
-    if (-margeX < latitude < margeX && -margeY < longitude < margeY) {
+    let margeX = (47.74429780432605 - 47.744292340461335);
+    let margeY = (7.33569646834205 - 7.33566396664148);
+    if (latitude > (cibleX - margeX) && latitude < (cibleX + margeX) &&
+        longitude > (cibleY - margeY) && longitude < (cibleY + margeY)) {
         // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
     }
