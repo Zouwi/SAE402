@@ -2,7 +2,8 @@ data = [
     {
         "texte": "Excuse me miss, you don't seem to be from Mulhouse, I think I know where to find what you're looking for. Look over there.",
         "visible": [
-            ".oldMan"
+            ".oldMan",
+            ".pharmacy"
         ],
         "bulle": "An Old Man"
     },
@@ -39,6 +40,32 @@ data = [
         "visible": [
             ".oldMan"
         ],
-        "bulle": "An Old Man"
+        "bulle": "An Old Man",
+        "fin" : ""
     }
+];
+
+doto = [
+    {
+        "texte2": "Oh, I think you come from the past, we haven't been a drapery for a long time.",
+        "visible2": [
+            ".apoth"
+        ],
+        "bulle2": "The Apothecary"
+    },
+    {
+        "texte2": "Do you really not have even one remaining bottle? I really need it and I can't find it anywhere else.",
+        "visible2": [
+            ".player"
+        ],
+        "bulle2": "Anna"
+    },
+    {
+        "texte2": "Well, I must have a small bottle somewhere, but it's buried in the mess at the back of the pharmacy. Come, I'll take you there.",
+        "visible2": [
+            ".apoth"
+        ],
+        "bulle2": "The Apothecary"
+    }
+
 ];

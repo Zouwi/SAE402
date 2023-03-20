@@ -24,6 +24,7 @@ function dialogueIntro() {
             window.location.href = "marche.html";
         }
     }
+
 }
 
 
