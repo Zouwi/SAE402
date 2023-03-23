@@ -1,6 +1,6 @@
 // VARIABLE DE INTRO
 let boiteIntro = document.querySelector(".boite");
-let boiteIntro2 = document.querySelector(".boite2");
+let compteur = 0;
 
 // Boite qui apparait avec délai
 setTimeout(() => {
@@ -12,25 +12,19 @@ setTimeout(() => {
 document.querySelector(".intro").addEventListener("click", dialogueIntro);
 
 function dialogueIntro() {
-    boiteIntro2.classList.add("apparition");
-    boiteIntro2.classList.remove("disparu");
-    boiteIntro.classList.add("disparu");
-    boiteIntro.classList.remove("apparition");
-}
-
-// Changement de page 
-document.querySelector(".intro").addEventListener("click", changePage);
-
-function changePage() {
+    // affichage du titre + texte 
+    document.querySelector(".title").innerHTML = data[compteur].titre;
+    document.querySelector(".texte").innerHTML = data[compteur].texte;
+    document.querySelector(".texte").innerHTML = data[compteur].texte;
     
+    // changement de page 
+    if (data[compteur].titre == "First mission") {
+        document.querySelector(".intro").addEventListener("click", changePage);
+        function changePage() {
+            window.location.href = "marche.html";
+        }
+    }
+
 }
 
-// if (boiteIntro.classList.contains("disparu")) {
-//     boiteIntro.style.display = "none";
-// }
 
-// VARIABLE DE MARCHE
-
-// animation des pas
-
-document.querySelector(".pied1").classList.add("disparu");

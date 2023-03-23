@@ -124,11 +124,11 @@ h1 {
 
 /* INTRO  */
 .intro {
-    background-image: url(img/BACKGROUND/bancBG.jpg);
+    background-image: url(img/BACKGROUND/accueil.jpg);
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
+    background-position: 0 0px;
 }
 
 .title {
@@ -141,7 +141,7 @@ h1 {
 .boite {
     background: #FFFEF7;
     width: 80%;
-    margin: 60% auto;
+    margin: 50% auto;
     border-radius: 5px;
     position: relative;
     text-align: center;
@@ -152,6 +152,7 @@ h1 {
 .texte {
     font-family: 'Arvo', serif;
     margin: auto;
+    text-align: left;
     padding: 0px 20px 40px 20px;
 }
 
@@ -219,4 +220,35 @@ h1 {
     width: 300px;
     border-radius: 10px;
     box-shadow: 4px 5px 0px #402505;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btnMarche {
+    text-align: center;
+    background-color: #FFFBD8;
+    padding: 2%;
+    width: 300px;
+    font-family: 'Cinzel', serif;
+    border-radius: 30px;
+    font-size: 20pt;
+    font-weight: bold;
+    color: #B88014;
+    box-shadow: 4px 5px 0px #402505;
+    margin: 40px auto;
+    text-decoration: none;
+}
+
+.pas {
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+}
+
+.assombrir {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
 }
