@@ -60,6 +60,23 @@
     z-index: -1;
 }
 
+.plumber {
+        width: 90%;
+        bottom: 0px;
+        right: 0px;
+        position: fixed;
+        z-index: -1;
+}
+
+.vendor {
+    width: 65%;
+    bottom: 0px;
+    right: 0px;
+    position: fixed;
+    z-index: -1;
+    transform: scaleX(-1);
+}
+
 .froggy, .froggySad {
     width: 45%;
     bottom: 140px;
@@ -136,4 +153,22 @@
     width: 100vw;
     height: 100vh;
     background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
+}
+
+.marche {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    background: url(/img/BACKGROUND/marche.jpg);
+}
+
+.tuyau {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    background: url(/img/BACKGROUND/tuyau.jpg);
 }

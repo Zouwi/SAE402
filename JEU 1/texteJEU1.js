@@ -1,60 +1,50 @@
 data = [
     {
-        "texte": "It's not a \"fountain\", it's the Water Table!",
+        "texte": "Sorry, we don't have any water at the moment. The covered market has some plumbing issues. It bothers me because my frogs aren't hydrated and could die soon.",
         "visible": [
-            ".froggySad"
+            ".vendor",
+            ".marche",
         ],
-        "bulle": "Froggy"
+        "bulle": "Salesman"
     },
     {
-        "texte": "Oh, sorry, I didn't know that frogs lived here.",
+        "texte": "But that's terrible! I won't let these frogs and any other animals die because of a plumbing problem. Where is the problem, sir?",
         "visible": [
             ".player"
         ],
         "bulle": "Anna"
     },
     {
-        "texte": "We're not just any frogs, we're the frogs of the Water Table, imagined and created by Quentin Garel in 2013. And we're a big family of bronze frogs.",
+        "texte": "Go see at the back, someone is already on the job.",
         "visible": [
-            ".froggy"
+            ".vendor"
         ],
-        "invisible": [
-            ".froggySad"
-        ],
-        "bulle": "Froggy"
+        "bulle": "Salesman"
     },
     {
-        "texte": "Interesting! I heard that your table has ideal water for dyeing fabric. And I would like to take just a little bit.",
+        "texte": "Excuse me, do you need any help?",
+        "visible": [
+            ".player",
+            ".tuyau",
+        ],
+        "invisible": [
+            ".marche",
+            ".vendor"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "I admit I'm a little stuck here... If you have some time to spare.",
+        "visible": [
+            ".plumber"
+        ],
+        "bulle": "Plumber"
+    },
+    {
+        "texte": "Actually, we don't have time to waste.",
         "visible": [
             ".player"
         ],
         "bulle": "Anna"
     },
-    {
-        "texte": "Sorry, but we haven't had any water for a while now. There's a problem with the pipes of our bronze table...",
-        "visible": [
-            ".froggySad"
-        ],
-        "invisible": [
-            ".froggy"
-        ],
-        "bulle": "Froggy"
-    },
-    {
-        "texte": "I think I can help you with my team! Show me these pipes!",
-        "visible": [
-            ".player"
-        ],
-        "bulle": "Anna"
-    },
-    {
-        "texte": "Oooh, thank you so much!",
-        "visible": [
-            ".froggy"
-        ],
-        "invisible": [
-            ".froggySad"
-        ],
-        "bulle": "Froggy"
-    }
 ];
