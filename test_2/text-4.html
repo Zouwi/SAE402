@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tube {
+  position: relative;
+  width: 100px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+.target {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 40px;
+  height: 20px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.balls {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tube">
+          <div class="target"></div>
+        </div>
+        <div class="balls">
+          <div class="ball" id="ball1"></div>
+          <div class="ball" id="ball2"></div>
+          <div class="ball" id="ball3"></div>
+        </div>
+      </div>
+      <script>
+        const balls = document.querySelectorAll('.ball');
+// Création des boules
+
+balls.forEach(ball => {
+  ball.addEventListener('mousedown', dragStart);
+  ball.addEventListener('mouseup', dragEnd);
+});
+
+// Fonction pour déterminer si la boule est bien déposée dans le bon tube
+function isDropped(ball, tube) {
+  const ballRect = ball.getBoundingClientRect();
+  const tubeRect = tube.getBoundingClientRect();
+
+  return (
+    ballRect.left >= tubeRect.left &&
+    ballRect.right <= tubeRect.right &&
+    ballRect.top >= tubeRect.top &&
+    ballRect.bottom <= tubeRect.bottom
+  );
+}
+
+// Fonction pour déplacer une boule
+function dragBall(ball, e) {
+  e.preventDefault();
+
+  currentX = e.pageX - initialX;
+  currentY = e.pageY - initialY;
+
+  xOffset = currentX;
+  yOffset = currentY;
+
+  ball.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+}
+
+// Fonction pour arrêter le déplacement d'une boule
+function dropBall(ball) {
+  if (isDropped(ball, dropZone)) {
+    ball.removeEventListener('mousemove', dragBall);
+    ball.removeEventListener('mouseup', dropBall);
+    ball.style.transform = '';
+    ball.style.position = 'absolute';
+    ball.style.top = '';
+    ball.style.left = '';
+    dropZone.appendChild(ball);
+    successCount++;
+    if (successCount === balls.length) {
+      alert('Bravo, vous avez réussi !');
+    }
+  } else {
+    xOffset = 0;
+    yOffset = 0;
+    setTranslate(0, 0, ball);
+  }
+}
+
+// Ajout des événements de déplacement pour chaque boule
+balls.forEach(ball => {
+  ball.addEventListener('mousedown', e => {
+    isDragging = true;
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+    ball.addEventListener('mousemove', e => dragBall(ball, e));
+  });
+  ball.addEventListener('mouseup', e => {
+    isDragging = false;
+    dropBall(ball);
+  });
+});
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<div class="parent1">
+    <div id="drag-element-1" class="draggable">Glissez-moi !</div>
+    <div id="drag-element-2" class="draggable">Glissez-moi aussi !</div>
+    <div id="drag-element-3" class="draggable">Et moi aussi !</div>
+  </div>
+  
+  <div class="parent2">
+    <div id="drop-zone" class="droppable">Déposez-moi ici !</div>
+  </div>
+  
+  
+  <style>
+  
+  .parent1, .parent2 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .draggable {
+    width: 100px;
+    height: 50px;
+    background-color: #f00;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    position: absolute;
+  }
+  
+  .droppable {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed #ccc;
+    text-align: center;
+    line-height: 200px;
+  }
+  
+  </style>
+  
+  
+  <script>
+  
+  const dragElements = document.querySelectorAll('.draggable');
+  const dropZone = document.getElementById('drop-zone');
+  
+  let isDragging = false;
+  let currentX;
+  let currentY;
+  let initialX = [];
+  let initialY = [];
+  let xOffset = [];
+  let yOffset = [];
+  
+  // Événement mousedown sur les éléments draggable
+  dragElements.forEach((dragElement, index) => {
+    dragElement.addEventListener('mousedown', e => {
+      initialX[index] = e.pageX - xOffset[index];
+      initialY[index] = e.pageY - yOffset[index];
+  
+      if (e.target === dragElement) {
+        isDragging = true;
+      }
+    });
+  });
+  
+  // Événement mousemove sur la fenêtre
+  window.addEventListener('mousemove', e => {
+    if (isDragging) {
+      e.preventDefault();
+  
+      dragElements.forEach((dragElement, index) => {
+        currentX = e.pageX - initialX[index];
+        currentY = e.pageY - initialY[index];
+  
+        xOffset[index] = currentX;
+        yOffset[index] = currentY;
+  
+        setTranslate(currentX, currentY, dragElement);
+      });
+    }
+  });
+  
+  // Événement mouseup sur les éléments draggable
+  dragElements.forEach((dragElement, index) => {
+    dragElement.addEventListener('mouseup', e => {
+      isDragging = false;
+  
+      if (isDropped()) {
+        alert('Bravo, vous avez réussi !');
+      } else {
+        xOffset[index] = 0;
+        yOffset[index] = 0;
+        setTranslate(0, 0, dragElement);
+      }
+    });
+  });
+  
+  function setTranslate(xPos, yPos, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+  }
+  
+  function isDropped() {
+  const dropZoneRect = dropZone.getBoundingClientRect();
+  let isInside = false;
+
+  draggableElements.forEach((element) => {
+    const elementRect = element.getBoundingClientRect();
+    if (
+      elementRect.left >= dropZoneRect.left &&
+      elementRect.right <= dropZoneRect.right &&
+      elementRect.top >= dropZoneRect.top &&
+      elementRect.bottom <= dropZoneRect.bottom
+    ) {
+      isInside = true;
+    }
+  });
+
+  return isInside;
+}
+
+  
+
+        function dragEnd(e) {
+  initialX = currentX;
+  initialY = currentY;
+
+  isDragging = false;
+
+  if (isDropped()) {
+    e.target.classList.add('dropped');
+    checkAllDropped();
+  } else {
+    e.target.style.transform = `translate3d(0, 0, 0)`;
+  }
+}
+
+function checkAllDropped() {
+  const draggableElements = document.querySelectorAll('.draggable');
+  let allDropped = true;
+
+  draggableElements.forEach((element) => {
+    if (!element.classList.contains('dropped')) {
+      allDropped = false;
+    }
+  });
+
+  if (allDropped) {
+    alert('Bravo, vous avez réussi !');
+  }
+}
