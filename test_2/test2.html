@@ -1,5 +1,7 @@
 <div class="parent1">
-    <div id="drag-element" class="draggable">Glissez-moi !</div>
+    <div id="" class=" drag-element draggable">Glissez-moi !</div>
+    <div id="" class=" drag-element draggable">Glissez-moi !</div>
+    <div id="" class=" drag-element draggable">Glissez-moi !</div>
   </div>
   
   <div class="parent2">
@@ -40,7 +42,13 @@
   
    <script>
   
-  const dragElement = document.getElementById('drag-element');
+  const dragElement = document.querySelectorAll('.drag-element');
+  dragElement.forEach(e=>{
+    e.addEventListener('mousedown', dragStart);
+    e.addEventListener('mousedown', dragEnd);
+
+  });
+  console.log(dragElement );
   const dropZone = document.getElementById('drop-zone');
   
   let isDragging = false;
@@ -52,13 +60,13 @@
   let yOffset = 0;
   
   // Événement mousedown sur l'élément draggable
-  dragElement.addEventListener('mousedown', dragStart);
+  // dragElement.addEventListener('mousedown', dragStart);
   
   // Événement mousemove sur la fenêtre
   window.addEventListener('mousemove', drag);
   
   // Événement mouseup sur l'élément draggable
-  dragElement.addEventListener('mouseup', dragEnd);
+  // dragElement.addEventListener('mouseup', dragEnd);
   
   function dragStart(e) {
     initialX = e.pageX - xOffset;
@@ -89,7 +97,7 @@
 
   isDragging = false;
 
-  if (isDropped()) {
+  if (isDropped(e)) {
     alert('Bravo, vous avez réussi !');
   } else {
     xOffset = 0;
@@ -102,7 +110,7 @@
     el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
   }
   
-  function isDropped() {
+  function isDropped(e) {
     const dropZoneRect = dropZone.getBoundingClientRect();
     const dragElementRect = dragElement.getBoundingClientRect();
   
@@ -116,4 +124,82 @@
   
   </script>
    
+<!-- correction chatGPT -->
+<script>
+  const dragElement = document.querySelectorAll('.drag-element');
+dragElement.forEach(e=>{
+  e.addEventListener('mousedown', dragStart);
+  e.addEventListener('mouseup', dragEnd);
+});
 
+const dropZone = document.getElementById('drop-zone');
+
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+function dragStart(e) {
+  initialX = e.clientX - xOffset;
+  initialY = e.clientY - yOffset;
+
+  if (e.target === this) {
+    isDragging = true;
+  }
+}
+
+function drag(e) {
+  if (isDragging) {
+    e.preventDefault();
+
+    currentX = e.clientX - initialX;
+    currentY = e.clientY - initialY;
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    setTranslate(currentX, currentY, this);
+  }
+}
+
+function dragEnd(e) {
+  initialX = currentX;
+  initialY = currentY;
+
+  isDragging = false;
+
+  if (isDropped(this)) {
+    alert('Bravo, vous avez réussi !');
+  } else {
+    xOffset = 0;
+    yOffset = 0;
+    setTranslate(0, 0, this);
+  }
+}
+
+function setTranslate(xPos, yPos, el) {
+  el.style.transform = translate3d(${xPos}px, ${yPos}px, 0);
+}
+
+function isDropped(element) {
+  const dropZoneRect = dropZone.getBoundingClientRect();
+
+  let isInsideDropZone = false;
+  dragElement.forEach(dragEl => {
+    const dragElementRect = dragEl.getBoundingClientRect();
+    if (
+      dragElementRect.left >= dropZoneRect.left &&
+      dragElementRect.right <= dropZoneRect.right &&
+      dragElementRect.top >= dropZoneRect.top &&
+      dragElementRect.bottom <= dropZoneRect.bottom
+    ) {
+      isInsideDropZone = true;
+    }
+  });
+
+  return isInsideDropZone;
+}
+</script>

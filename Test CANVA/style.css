@@ -1,0 +1,99 @@
+.toile {
+   
+    border: 2px solid black;
+}
+
+body {
+    margin: 0;
+}
+
+.palette {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+
+.palette>* {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+.taille {
+    position: fixed;
+    top: 0px;
+    right: 8%;
+    margin: 10px;
+}
+
+.taille1 {
+    width: 10px;
+    height: 10px;
+}
+
+.taille2 {
+    width: 20px;
+    height: 20px;
+}
+
+.taille5 {
+    width: 30px;
+    height: 30px;
+}
+
+.taille10 {
+    width: 40px;
+    height: 40px;
+}
+
+.taille30 {
+    width: 70px;
+    height: 70px;
+}
+
+.taille>* {
+    margin: auto auto 10px auto;
+    background: black;
+    border-radius: 50px;
+}
+
+.gommage {
+    position: fixed;
+    top: 24%;
+    right: 9%;
+    width: 3%;
+}
+
+.elephant {
+    position: fixed;
+    width: 50%;
+    top: 40px;
+    left: 20%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.cat {
+    position: fixed;
+    width: 50%;
+    top: 40px;
+    left: 20%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.turtle {
+    position: fixed;
+    width: 50%;
+    top: 40px;
+    left: 20%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.disparu {
+    display: none;
+}

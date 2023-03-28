@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game - drawing</title>
+    <link rel="stylesheet" href="styleJEU3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <canvas class="toile">
+    </canvas>
+    <div class="menu translation">
+        <div class="palette">
+            <div data-couleur="#ff595e"></div>
+            <div data-couleur="#fa9500"></div>
+            <div data-couleur="#ffca3a"></div>
+            <div data-couleur="#8ac926"></div>
+            <div data-couleur="#1982c4"></div>
+            <div data-couleur="#3a0ca3"></div>
+            <div data-couleur="#6a4c93"></div>
+            <div data-couleur="black"></div>
+        </div>
+        <div class="outils">
+            <div class="taille">
+                <div class="taille1" data-taille="1"></div>
+                <div class="taille2" data-taille="2"></div>
+                <div class="taille5" data-taille="5"></div>
+                <div class="taille10" data-taille="10"></div>
+                <div class="taille30" data-taille="30"></div>
+            </div>
+            <svg class="gommage" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#402505"
+                class="bi bi-eraser-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
+            </svg>
+        </div>
+        <div class="languette">
+            <svg class="rotation" style="transition: 0.3s" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                fill="#402505" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path
+                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+            </svg>
+        </div>
+    </div>
+    <a href="/JEU 3/suite.html">
+        <div class="btn">I'm done</div>
+    </a>
+    <div class="timer">
+        
+    </div>
+    <div class="parent">
+        <img data-animal="1" class="cat disparu" src="/img/ICONS/cat.png" alt="cat">
+        <img data-animal="2" class="elephant disparu" src="/img/ICONS/elephant.png" alt="elephant">
+        <img data-animal="3" class="turtle" src="/img/ICONS/turtle.png" alt="turtle">
+    </div>
+    <script src="jeuCanva.js"></script>
+</body>
+
+</html>
