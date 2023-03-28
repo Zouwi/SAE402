@@ -45,6 +45,14 @@
     overflow: hidden;
 }
 
+.afterjeu1 {
+    margin: 0px;
+    background-image: url(/img/BACKGROUND/tuyau.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
 .perso {
     position: absolute;
     bottom: 0px;
