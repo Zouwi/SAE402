@@ -372,7 +372,7 @@ h1 {
     height: 120px;
     border: 2px solid #402505;
     border-radius: 10px;
-    background: url(/img/BACKGROUND/map-mulhouse.jpg);
+    background: url(../img/BACKGROUND/map-mulhouse.jpg);
     background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
