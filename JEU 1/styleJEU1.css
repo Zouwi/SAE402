@@ -5,12 +5,12 @@
 }
 
 .disparu {
-    opacity: 0;
     display: none; 
 }
 
 .disparu2 {
     opacity: 0;
+    z-index: -3 !important;
 }
 
 
@@ -161,6 +161,16 @@
     width: 100vw;
     height: 100vh;
     background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
+    position: fixed;
+    top: 0px;
+}
+
+.assombrir2 {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(42, 22, 2, 0.655), rgba(42, 22, 2, 0.655));
+    position: fixed;
+    top: 0px;
 }
 
 .marche {
@@ -203,6 +213,13 @@
     color: #a26418;
 }
 
+.grosBoite {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
 .boiteO {
     background: #FFFEF7;
     width: 90%;
@@ -216,14 +233,14 @@
     left: 20px;
     box-sizing: border-box;
     font-family: 'Arvo', serif;
-    z-index: 2;
+    z-index: 5;
     display: grid;
     grid-template-columns: 1fr;
 }
 
 .water {
-    width: 30%;
-    border-radius: 50px;
+    width: 20%;
+    border-radius: 10px;
     margin: auto;
 }
 
@@ -297,7 +314,7 @@ a {
     font-weight: bold;
     color: #B88014;
     box-shadow: 4px 5px 0px #402505;
-    margin: 40px auto;
+    margin: 40px auto 20px auto;
     text-decoration: none;
 }
 
@@ -358,13 +375,14 @@ h1 {
 
 .parentIndice {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 60% auto;
 }
 
 .legend {
     background: #402505;
     padding: 8px;
     border-radius: 10px;
+    height: 20px;
 }
 
 .map {
@@ -376,17 +394,16 @@ h1 {
     background-size: 200%;
     background-position: center;
     background-repeat: no-repeat;
-    margin: auto auto 10px auto;
+    margin: 0px auto 10px auto;
 }
 
 .bigMap {
     position: fixed;
     top: 20%;
     left: 0px;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
     height: 62%;
-    display: inline-block;
     border: 2px solid #402505;
     box-sizing: border-box;
     border-radius: 10px;
@@ -404,5 +421,33 @@ h1 {
     background-size: 200%;
     background-position: left;
     background-repeat: no-repeat;
-    margin: auto auto 10px auto;
+    margin: 0px auto 10px auto;
+}
+
+.bigCode {
+    position: fixed;
+    top: 20%;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 62%;
+    border: 2px solid #402505;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: url(../img/ITEMS/codeGAME1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.croix {
+    position: fixed;
+    bottom: 11%;
+    right: 10%;
+    z-index: 3;
+}
+.croix2 {
+    position: fixed;
+    top: 11%;
+    right: 10%;
+    z-index: 3;
 }

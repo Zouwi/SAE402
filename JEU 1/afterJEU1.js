@@ -5,7 +5,9 @@ document.querySelector(".boite").addEventListener("click", dialogue);
 
 function dialogue() {
     // affichage du nom 
-    document.querySelector(".name").innerHTML = doto[compteur].bulle;
+    if (doto[compteur].bulle) {
+        document.querySelector(".name").innerHTML = doto[compteur].bulle;
+    }
 
     // Mettre en highlight
     document.querySelector(".devant").classList.remove("devant");
@@ -23,10 +25,10 @@ function dialogue() {
         });
     }
 
-    // fermerl'item 
+    // fermer l'item 
     document.querySelector(".btn").addEventListener("click", fermer)
     function fermer() {
-        document.querySelector(".boiteO").classList.add("disparu");
+        document.querySelector(".grosBoite").classList.add("disparu");
     }
 
     // Affichage lettres par lettres 
@@ -43,4 +45,14 @@ function dialogue() {
 
     compteur++;
 
+    // Changement de page 
+    if (doto[compteur].fin) {
+        document.querySelector(".boite").addEventListener("click", changePage);
+        function changePage() {
+            console.log("redirection")
+            window.location.href = "marcheJEU1.html";
+        }
+    }
+
 }
+

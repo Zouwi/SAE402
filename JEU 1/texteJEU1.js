@@ -68,7 +68,7 @@ doto = [
         "texte": "Yes, of course, here you go.",
         "visible": [
             ".plumber",
-            ".boiteO",
+            ".grosBoite",
         ],
         "bulle": "The Plumber"
     },
@@ -100,9 +100,14 @@ doto = [
             ".player",
             ".froggy",
             ".marche",
-            ".name"
+            ".name",
         ],
-
-        "bulle": ""
+        "bulle": "Narrator",
     },
+    {
+        "texte": "",
+        "bulle": "",
+        "fin": "fin",
+    }
+
 ];
