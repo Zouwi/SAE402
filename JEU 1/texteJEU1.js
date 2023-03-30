@@ -67,7 +67,8 @@ doto = [
     {
         "texte": "Yes, of course, here you go.",
         "visible": [
-            ".plumber"
+            ".plumber",
+            ".boiteO",
         ],
         "bulle": "The Plumber"
     },

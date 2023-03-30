@@ -15,11 +15,19 @@ function dialogue() {
             document.querySelector(e).classList.add("disparu");
         });
     }
-    
-    doto[compteur].visible.forEach(e => {
-        document.querySelector(e).classList.add("devant");
-        document.querySelector(e).classList.remove("disparu");
-    });
+    if (doto[compteur].visible) {
+        doto[compteur].visible.forEach(e => {
+            document.querySelector(e).classList.add("devant");
+            document.querySelector(e).classList.remove("disparu");
+            document.querySelector(e).classList.remove("disparu2");
+        });
+    }
+
+    // fermerl'item 
+    document.querySelector(".btn").addEventListener("click", fermer)
+    function fermer() {
+        document.querySelector(".boiteO").classList.add("disparu");
+    }
 
     // Affichage lettres par lettres 
     let texte = doto[compteur].texte;
