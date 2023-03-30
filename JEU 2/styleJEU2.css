@@ -80,7 +80,7 @@
 }
 
 .parentBoite {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: relative;
 }
@@ -163,6 +163,8 @@
 .assombrir {
     width: 100vw;
     height: 100vh;
+    position: fixed;
+    top: 0px;
     background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
 }
 
@@ -192,8 +194,267 @@
 
 /* Partie dans la pharmacy  */
 .pharmaco {
-    background: url(../img/BACKGROUND/apothicary.jpg);
-    background-size: 1140px;
-    background-position: -100px 0px;
+    position: fixed;
+    z-index: -3;
+    top: 0px;
+    left: 0px;
+    background: url(../img/BACKGROUND/pharmaco.jpg);
+    background-size: 100%;
     background-repeat: no-repeat;
 }
+
+/* Boite de l'item  */
+.title {
+    font-family: 'cinzel', serif;
+    margin: auto;
+    font-size: 20pt;
+    padding: 20px;
+    text-align: center;
+    color: #a26418;
+}
+
+.grosBoite {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.boiteO {
+    background: #FFFEF7;
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    top: 180px;
+    left: 20px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.water {
+    width: 20%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.nomO {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Arvo';
+    color: #402505;
+}
+
+.btn {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    font-size: 15pt;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 180px;
+    text-align: center;
+    color: #402505;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+/* Partie marche jeu 2 */
+.chemin {
+    margin: 0px;
+    background-image: url(../img/BACKGROUND/pexels-pixabay-235985.jpg);
+    background-position: 0px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.chemin > .parent {
+    margin-top: 70px;
+}
+
+.ptitTexte {
+    font-family: 'Arvo', serif;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px 20px 20px 20px;
+    color: #402505;
+    background-color: #FFFEF7;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 4px 5px 0px #402505;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btnMarche {
+    text-align: center;
+    background-color: #FFFBD8;
+    padding: 2%;
+    width: 300px;
+    font-family: 'Cinzel', serif;
+    border-radius: 30px;
+    font-size: 20pt;
+    font-weight: bold;
+    color: #B88014;
+    box-shadow: 4px 5px 0px #402505;
+    margin: 40px auto 20px auto;
+    text-decoration: none;
+}
+
+.pas {
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+}
+
+.orne1 {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+
+.orne2 {
+    position: fixed;
+    transform: rotate(90deg);
+    bottom: 0px;
+    right: 0px;
+}
+
+.orne3 {
+    position: fixed;
+    transform: rotate(-90deg);
+    top: 0px;
+    left: 0px;
+}
+
+.orne4 {
+    position: fixed;
+    transform: rotate(180deg);
+    bottom: 0px;
+    left: 0px;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: initial;
+    color: white;
+    font-size: 30pt;
+    margin: 40px auto;
+}
+
+.ornementTitre {
+    margin: -80px auto;
+}
+
+.indice {
+    margin: 30px 0px 30px 0px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arvo', serif;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.parentIndice {
+    display: grid;
+    grid-template-rows: 60% auto;
+}
+
+.legend {
+    background: #402505;
+    padding: 8px;
+    border-radius: 10px;
+    height: 20px;
+}
+
+.map {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #402505;
+    border-radius: 10px;
+    background: url(../img/BACKGROUND/map-mulhouse.jpg);
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0px auto 10px auto;
+}
+
+.bigMap {
+    position: fixed;
+    top: 20%;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 62%;
+    border: 2px solid #402505;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: url(../img/ITEMS/map-mulhouse-horizontal.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.code {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #402505;
+    border-radius: 10px;
+    background: url(../img/ITEMS/codeGAME1.png);
+    background-size: 200%;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin: 0px auto 10px auto;
+}
+
+.bigCode {
+    position: fixed;
+    top: 20%;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 62%;
+    border: 2px solid #402505;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: url(../img/ITEMS/codeGAME1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.croix {
+    position: fixed;
+    bottom: 11%;
+    right: 10%;
+    z-index: 3;
+}
+.croix2 {
+    position: fixed;
+    top: 11%;
+    right: 10%;
+    z-index: 3;
+}
+
+/* JEU HIDE AND SIKE  */
+.hide {
+    margin: 0;
+}
+
+.fondB {
+    width: 100%;
+    height: 100%;
+}
+
