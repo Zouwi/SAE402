@@ -1,6 +1,6 @@
 .jeu3 {
     margin: 0;
-    background: url(/img/BACKGROUND/museum.jpg);
+    background: url(../img/BACKGROUND/museum.jpg);
     background-position: 0 0;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 
 
 .jeu2 {
-    background: url(/img/BACKGROUND/PlaceReunion3.jpg);
+    background: url(../img/BACKGROUND/PlaceReunion3.jpg);
     background-size: cover;
     background-position: 0 -140px;
     background-repeat: no-repeat;

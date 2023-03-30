@@ -39,7 +39,7 @@
 
 .jeu1 {
     margin: 0px;
-    background-image: url(/img/BACKGROUND/PlacePaix.jpg);
+    background-image: url(../img/BACKGROUND/PlacePaix.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -47,7 +47,7 @@
 
 .afterjeu1 {
     margin: 0px;
-    background-image: url(/img/BACKGROUND/tuyau.jpg);
+    background-image: url(../img/BACKGROUND/tuyau.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -169,7 +169,7 @@
     position: fixed;
     top: 0px;
     z-index: -2;
-    background: url(/img/BACKGROUND/marche.jpg);
+    background: url(../img/BACKGROUND/marche.jpg);
 }
 
 .tuyau {
@@ -178,7 +178,7 @@
     position: fixed;
     top: 0px;
     z-index: -2;
-    background: url(/img/BACKGROUND/tuyau.jpg);
+    background: url(../img/BACKGROUND/tuyau.jpg);
 }
 
 .fountain {
@@ -188,7 +188,7 @@
     top: 0px;
     left:0px;
     z-index: -2;
-    background: url(/img/BACKGROUND/waterTable.jpg);
+    background: url(../img/BACKGROUND/waterTable.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -255,7 +255,7 @@
 /* Page pour la marche  */
 .chemin {
     margin: 0px;
-    background-image: url(/img/BACKGROUND/pexels-pixabay-235985.jpg);
+    background-image: url(../img/BACKGROUND/pexels-pixabay-235985.jpg);
     background-position: 0px;
     background-repeat: no-repeat;
     position: relative;
@@ -390,7 +390,7 @@ h1 {
     border: 2px solid #402505;
     box-sizing: border-box;
     border-radius: 10px;
-    background: url(/img/ITEMS/map-mulhouse-horizontal.jpg);
+    background: url(../img/ITEMS/map-mulhouse-horizontal.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -400,7 +400,7 @@ h1 {
     height: 120px;
     border: 2px solid #402505;
     border-radius: 10px;
-    background: url(/img/ITEMS/codeGAME1.png);
+    background: url(../img/ITEMS/codeGAME1.png);
     background-size: 200%;
     background-position: left;
     background-repeat: no-repeat;

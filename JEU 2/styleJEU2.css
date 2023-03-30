@@ -38,7 +38,7 @@
 
 
 .jeu2 {
-    background: url(/img/BACKGROUND/PlaceReunion3.jpg);
+    background: url(../img/BACKGROUND/PlaceReunion3.jpg);
     background-size: cover;
     background-position: 0 -140px;
     background-repeat: no-repeat;
@@ -192,7 +192,7 @@
 
 /* Partie dans la pharmacy  */
 .pharmaco {
-    background: url(/img/BACKGROUND/apothicary.jpg);
+    background: url(../img/BACKGROUND/apothicary.jpg);
     background-size: 1140px;
     background-position: -100px 0px;
     background-repeat: no-repeat;
