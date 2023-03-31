@@ -8,7 +8,8 @@
 }
 
 .disparu2 {
-    display: none;
+    opacity: 0;
+    transition: 0.5s;
 }
 
 
@@ -451,10 +452,90 @@ h1 {
 /* JEU HIDE AND SIKE  */
 .hide {
     margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #402505;
+    position: relative;
 }
 
 .fondB {
     width: 100%;
     height: 100%;
+    position: fixed;
+    z-index: 0;
+    left: 0%;
+    top: 0px;
 }
 
+@keyframes bg {
+    0%
+    {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Boite de victoire  */
+.title {
+    font-family: 'cinzel', serif;
+    margin: auto;
+    font-size: 20pt;
+    padding: 20px;
+    text-align: center;
+    color: #a26418;
+}
+
+.grosBoite {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.boiteO {
+    background: #FFFEF7;
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    top: 200px;
+    left: 20px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.water {
+    width: 30%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.nomO {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Arvo';
+    color: #402505;
+}
+
+.btn {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    font-size: 15pt;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 180px;
+    text-align: center;
+    color: #402505;
+    margin: auto;
+    margin-bottom: 30px;
+}

@@ -44,4 +44,3 @@ function dialogue() {
     }
     compteur++;
 }
-
