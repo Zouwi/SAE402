@@ -73,6 +73,14 @@ doto = [
             ".apoth"
         ],
         "bulle2": "The Apothecary"
+    },
+    {
+        "texte2": "",
+        "visible2": [
+            ".apoth"
+        ],
+        "bulle2": "The Apothecary",
+        "fin": "",
     }
 
 ];

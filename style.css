@@ -252,3 +252,24 @@ a {
     height: 100vh;
     background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
 }
+
+/* Bouton du debug menu  */
+.btnDebug {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-family: 'Arvo', serif;
+    background-color: #FFFBD8;
+    color: #402505;
+    width: 140px;
+    text-align: center;
+    padding: 2%;
+    border-radius: 10px;
+    border: 2px solid #402505;
+}
+
+.bi {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+}

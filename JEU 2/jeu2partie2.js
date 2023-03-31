@@ -18,7 +18,7 @@ function dialogue2() {
         document.querySelector(f).classList.add("devant");
         document.querySelector(f).classList.remove("disparu");
     });
-    
+
     // Affichage lettres par lettres 
     let texte2 = doto[compteur2].texte2;
     let position2 = 1;
@@ -30,12 +30,14 @@ function dialogue2() {
             clearInterval(timer2);
         }
     })
-
-    // if (data[compteur].fin == "") {
-    //     document.querySelector(".jeu2").addEventListener("click", changePage);
-    //     function changePage() {
-    //         window.location.href = "apothecary.html";
-    //     }
-    // }
     compteur2++;
+
+    // changement de page 
+    if (doto[compteur2].fin == "") {
+        document.querySelector(".boite").addEventListener("click", changePage);
+        function changePage() {
+            console.log("redirection")
+            window.location.href = "hide.html";
+        }
+    }
 }
