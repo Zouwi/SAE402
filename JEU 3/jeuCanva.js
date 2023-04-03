@@ -34,9 +34,17 @@ function dessiner(event) {
         ctx.clearRect(x2 - 10, y2 - 10, 20, 20);
     } else { // Sinon, dessiner normalement
         ctx.lineTo(x2, y2);
+        // ctx.lineCap = "round";
         ctx.stroke();
         x = x2;
         y = y2;
+
+        // Ajouter une couleur transparente à la fin du trait
+        let grad = ctx.createLinearGradient(x, y, x2, y2);
+        grad.addColorStop(0, ctx.strokeStyle);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.strokeStyle = grad;
+        ctx.stroke();
     }
 }
 
@@ -132,4 +140,4 @@ function demarrerMinuteur() {
 }
 
 // Démarrer le minuteur
-demarrerMinuteur();
+// demarrerMinuteur();

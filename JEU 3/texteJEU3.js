@@ -34,13 +34,21 @@ data = [
         ],
         "bulle": "The Artist"
     },
+    {
+        "texte": "",
+        "visible": [
+            ".artist"
+        ],
+        "bulle": "The Artist",
+        "fin": "",
+    },
 ];
 
 doto = [
     {
-        "texte": "Let me see it! ...I must say, it's not bad. It's a nice design, I couldn't have done better myself! The important thing is to participate.",
+        "texte": "Let me see it! ...I must say, it's not bad.",
         "visible": [
-            ".artist"
+            ".artist",
         ],
         "bulle": "The Artist"
     },
@@ -59,17 +67,82 @@ doto = [
         "bulle": "The Artist"
     },
     {
-        "texte": "Hello, we want to do a fabric print. We already have the dye we need.",
+        "texte": "Hi! We are here to show you the model we created.",
         "visible": [
-            ".player"
+            ".player",
+            ".workshop"
+        ],
+        "invisible": [
+            ".artist",
         ],
         "bulle": "Anna"
     },
     {
-        "texte": "Of course, we will create the pattern you want. Follow me.",
+        "texte": "Hey! I see, give me your model, this step is quite delicate. We need to create a stamp in wood. This means that we will create a relief of your drawing's outline.",
         "visible": [
-            ".artist"
+            ".graver"
         ],
-        "bulle": "The Artist"
+        "bulle": "The Engraver"
+    },
+    {
+        "texte": "I'll take care of carving the wood. Come back in a few times.",
+        "visible": [
+            ".graver"
+        ],
+        "bulle": "The Engraver"
+    },
+    {
+        "texte": "I'll take care of carving the wood. Come back in a few times.",
+        "visible": [
+            ".graver",
+            ".blanc"
+        ],
+        "bulle": "The Engraver"
+    },
+    {
+        "texte": "Here you go! A beautiful stamp that you need to bring to the printing side now.",
+        "visible": [
+            ".graver",
+        ],
+        "bulle": "The Engraver"
+    },
+    {
+        "texte": "Thank you very much!",
+        "visible": [
+            ".player",
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "Hello, we have everything we need to do our fabric printing.",
+        "visible": [
+            ".player",
+            ".textile"
+        ],
+        "invisible": [
+            ".graver",
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "Hi there, indeed the last part is left, and the best one: printing!",
+        "visible": [
+            ".print",
+        ],
+        "bulle": "The Printer"
+    },
+    {
+        "texte": "The goal is to put the desired dye on your wooden stamp, then press it onto the fabric using a press. And BAM you have your print. Magical isn't it?",
+        "visible": [
+            ".print",
+        ],
+        "bulle": "The Printer"
+    },
+    {
+        "texte": "Well, what are we waiting for?",
+        "visible": [
+            ".player",
+        ],
+        "bulle": "Anna"
     },
 ];

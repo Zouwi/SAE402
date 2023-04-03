@@ -20,6 +20,19 @@ function dialogue() {
         document.querySelector(e).classList.remove("disparu");
     });
 
+    // Enlever des éléments 
+    if (doto[compteur].invisible) {
+        doto[compteur].invisible.forEach(e => {
+            document.querySelector(e).classList.add("disparu");
+        });
+    }
+
+    // Le flash de la transition dans le temps
+    if (doto[compteur].texte == "I'll take care of carving the wood. Come back in a few times.") 
+    setTimeout(() => {
+        document.querySelector(".blanc").classList.add("disparu");
+    }, 5500)
+
     // Affichage lettres par lettres 
     let texte = doto[compteur].texte;
     let position = 1;

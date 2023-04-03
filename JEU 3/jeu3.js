@@ -29,14 +29,16 @@ function dialogue() {
             clearInterval(timer);
         }
     })
-
+    // Changement de page 
     if (data[compteur].fin == "") {
-        document.querySelector(".jeu2").addEventListener("click", changePage);
+        document.querySelector(".jeu3").addEventListener("click", changePage);
         function changePage() {
-            window.location.href = "apothecary.html";
+            window.location.href = "canva.html";
         }
     }
     compteur++;
+
+
 }
 
 
