@@ -146,3 +146,38 @@ doto = [
         "bulle": "Anna"
     },
 ];
+
+diti = [
+    {
+        "texte": "I just need to go back to the D.M.C. factory to tell them about our adventure! I have enough information about textiles in Mulhouse.",
+        "visible": [
+            ".player",
+            ".mulhouse"
+        ],
+        "invisible": [
+            ".textile",
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "If you want to learn more, don't hesitate to visit the Textile Printing Museum. It's really cool!",
+        "visible": [
+            ".player"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "Well, thank you very much for your help. I had a great time in the city of Mulhouse. I hope you'll enjoy the city too. See you soon!",
+        "visible": [
+            ".player"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "",
+        "visible": [
+            ".player",
+        ],
+        "bulle": "Anna"
+    },
+];
