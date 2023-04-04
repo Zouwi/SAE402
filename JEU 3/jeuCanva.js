@@ -14,6 +14,7 @@ let x, y;
 
 canvas.addEventListener("touchstart", demarrerDessin);
 canvas.addEventListener("touchmove", dessiner);
+canvas.addEventListener("touchmove", dessiner2);
 canvas.addEventListener("touchend", arreterDessin);
 
 function demarrerDessin(event) {
@@ -34,17 +35,42 @@ function dessiner(event) {
         ctx.clearRect(x2 - 10, y2 - 10, 20, 20);
     } else { // Sinon, dessiner normalement
         ctx.lineTo(x2, y2);
-        // ctx.lineCap = "round";
+        ctx.lineCap = "round";
         ctx.stroke();
+        ctx.lineWidth = 12;
+        ctx.strokeStyle = "black";
         x = x2;
         y = y2;
+    }
+}
+
+function dessiner2(event) {
+    event.preventDefault();
+    let x2D = event.touches[0].clientX - canvas.offsetLeft;
+    let y2D = event.touches[0].clientY - canvas.offsetTop;
+
+    // Si la gomme est sélectionnée, effacer le canvas
+    if (gommeActive) {
+        ctx.clearRect(x2D - 10, y2D - 10, 20, 20);
+    } else { // Sinon, dessiner normalement
+        // ctx.beginPath();
+        setTimeout(() => {
+            ctx.moveTo(x2D, y2D);
+            ctx.lineTo(x2D, y2D);
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.strokeStyle = "white";
+            x = x2D;
+            y = y2D;
+        }, 800)
+
 
         // Ajouter une couleur transparente à la fin du trait
-        let grad = ctx.createLinearGradient(x, y, x2, y2);
-        grad.addColorStop(0, ctx.strokeStyle);
-        grad.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.strokeStyle = grad;
-        ctx.stroke();
+        // ctx.save();
+        // ctx.globalCompositeOperation = "destination-out";
+
+        // ctx.restore();
+
     }
 }
 
