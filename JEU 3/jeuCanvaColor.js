@@ -1,8 +1,8 @@
 // const canvg = require('canvg');
 // Partie CANVAS 
-// Importer la bibliothèque 
-
 // Le dessin 
+const imageData = JSON.parse(localStorage.getItem('imageData'));
+const dataUrl = localStorage.getItem('dataUrl');
 
 const canvas = document.querySelector(".toile");
 const ctx = canvas.getContext("2d");
@@ -37,11 +37,11 @@ function dessiner(event) {
     if (gommeActive) {
         ctx.clearRect(x2 - 10, y2 - 10, 20, 20);
     } else { // Sinon, dessiner normalement
-        // ctx.beginPath();
-        // ctx.moveTo(x, y);
-        // ctx.fillStyle = "rgba(255,255,255,0.3)";
-        // ctx.fillRect(0, 0, W, H);
-        // ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.fillStyle = "rgba(255,255,255,0.3)";
+        ctx.fillRect(0, 0, W, H);
+        ctx.fill();
         ctx.lineTo(x2, y2);
         ctx.lineCap = "round";
         ctx.lineWidth = 12;
@@ -52,52 +52,54 @@ function dessiner(event) {
     }
 }
 
+function arreterDessin() {
+    ctx.closePath();
+}
 
-// Réccupérer une image 
+// Dessiner l'image sur le canvas
+const img = new Image();
+img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+};
+img.src = dataUrl;
 
-// Récupérer les données de l'image
-const imageData = ctx.getImageData(0, 0, W, H);
-const dataUrl = canvas.toDataURL();
+// Restaurer les données de l'image dans le canvas
+ctx.putImageData(imageData, 0, 0);
 
+// Télécharger l'image 
+// Ajouter un écouteur d'événement pour le bouton de téléchargement
+const downloadBtn = document.querySelector(".btnc");
+downloadBtn.addEventListener('click', function () {
+    // Récupérer l'image du canvas en tant que URL
+    const url = canvas.toDataURL('image/png');
 
-// Stocker les données de l'image dans le localStorage
-document.querySelector(".btnCanva").addEventListener("click", () => {
-    localStorage.setItem('imageData', JSON.stringify(imageData));
-    localStorage.setItem('dataUrl', dataUrl);
-    console.log('imageData');
-})
+    // Créer un lien de téléchargement
+    const link = document.createElement('a');
+    link.download = 'mon_dessin.png';
+    link.href = url;
 
-// function genererImage() {
-//     let image = canvas.toDataURL("image/png");
-//     console.log(image);
-//     let img = document.createElement("img");
-//     img.src = image;
-//     document.querySelector(".modele").appendChild(img);
-//     // document.querySelector(".modele").innerHTML = image;
-// }
-
-
+    // Cliquer sur le lien pour déclencher le téléchargement
+    link.click();
+});
 
 // document.querySelector(".stp").addEventListener("click", (e) => {
 //     e.preventDefault()
 //     genererImage();
 // });
 
-function arreterDessin() {
-    ctx.closePath();
-}
+
 
 // La gomme
-document.querySelector(".gommage").addEventListener("click", () => {
-    gommeActive = true; // Sélectionner la gomme
-});
+// document.querySelector(".gommagec").addEventListener("click", () => {
+//     gommeActive = true; // Sélectionner la gomme
+// });
 
-document.querySelector(".taille").addEventListener("click", () => {
+document.querySelector(".taillec").addEventListener("click", () => {
     gommeActive = false; // Désélectionner la gomme
 });
 
 // La palette de couleur 
-document.querySelectorAll(".palette>*").forEach(element => {
+document.querySelectorAll(".palettec>*").forEach(element => {
     element.style.backgroundColor = element.dataset.couleur;
     element.addEventListener("click", changeCouleur);
     function changeCouleur() {
@@ -107,7 +109,7 @@ document.querySelectorAll(".palette>*").forEach(element => {
 })
 
 // Le changement de taille 
-document.querySelectorAll(".taille>*").forEach(element => {
+document.querySelectorAll(".taillec>*").forEach(element => {
     element.addEventListener("click", changeTaille);
     function changeTaille() {
         ctx.lineWidth = element.dataset.taille;
@@ -115,7 +117,7 @@ document.querySelectorAll(".taille>*").forEach(element => {
 })
 
 
-document.querySelector(".gommage").addEventListener("click", effacer);
+// document.querySelector(".gommagec").addEventListener("click", effacer);
 
 function effacer() {
     // ctx.lineWidth = 40;
@@ -125,35 +127,35 @@ function effacer() {
 }
 
 // Les modèles aléatoires 
-let aleatoire = Math.round(Math.random() * 2 + 1);
-console.log(aleatoire);
+// let aleatoire = Math.round(Math.random() * 2 + 1);
+// console.log(aleatoire);
 
-if (aleatoire == 1) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".cat").classList.remove("disparu");
-}
-else if (aleatoire == 2) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".elephant").classList.remove("disparu");
-}
+// if (aleatoire == 1) {
+//     document.querySelectorAll(".parent>*").forEach(e => {
+//         e.classList.add("disparu");
+//     })
+//     document.querySelector(".cat").classList.remove("disparu");
+// }
+// else if (aleatoire == 2) {
+//     document.querySelectorAll(".parent>*").forEach(e => {
+//         e.classList.add("disparu");
+//     })
+//     document.querySelector(".elephant").classList.remove("disparu");
+// }
 
-else if (aleatoire == 3) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".turtle").classList.remove("disparu");
-}
+// else if (aleatoire == 3) {
+//     document.querySelectorAll(".parent>*").forEach(e => {
+//         e.classList.add("disparu");
+//     })
+//     document.querySelector(".turtle").classList.remove("disparu");
+// }
 
 // Le menu qui s'ouvre 
-document.querySelector(".languette").addEventListener("click", ouvre);
+document.querySelector(".languettec").addEventListener("click", ouvre);
 
 function ouvre() {
-    document.querySelector(".menu").classList.toggle("translation");
-    document.querySelector(".languette>*").classList.toggle("rotation");
+    document.querySelector(".menuc").classList.toggle("translationc");
+    document.querySelector(".languettec>*").classList.toggle("rotationc");
 }
 
 // Minuteur 

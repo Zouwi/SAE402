@@ -314,7 +314,127 @@ body {
     display: none;
 }
 
-.btn {
+.btnCanva {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 20pt;
+    color: #402505;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    margin: auto;
+}
+
+/* Deuxième CANVA  */
+.menuc {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    position: relative;
+    border-radius: 10px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    display: block;
+}
+
+.outilsc {
+    display: flex;
+    justify-items: center;
+}
+
+.languettec {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    border-top: none;
+    display: inline-block;
+    padding: 8px 10px 0px 10px;
+    border-radius: 0px 0px 10px 10px;
+    position: absolute;
+    top: 139px;
+    transition: 0.2s;
+}
+
+.rotationc {
+    transform: rotate(180deg);
+}
+
+.translationc {
+    top: -148px;
+}
+
+.palettec {
+    /* position: fixed;
+    top: 0px;
+    right: 0px; */
+    display: flex;
+}
+
+.palettec>* {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.taillec {
+    /* position: fixed;
+    top: 440px;
+    right: 0px; */
+    margin: 10px;
+    display: flex;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.taillec1 {
+    width: 10px;
+    height: 10px;
+}
+
+.taillec2 {
+    width: 20px;
+    height: 20px;
+}
+
+.taillec5 {
+    width: 30px;
+    height: 30px;
+}
+
+.taillec10 {
+    width: 40px;
+    height: 40px;
+}
+
+.taillec30 {
+    width: 50px;
+    height: 50px;
+}
+
+.taillec>* {
+    margin: auto 5px auto 5px;
+    background-color: #402505;
+    border-radius: 50px;
+}
+
+.gommagec {
+    width: 10%;
+    height: 10%;
+    margin: 14px 10px 10px 10px;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.btnc {
     font-family: 'Cinzel', serif;
     background-color: #f1d293;
     display: inline-block;
@@ -332,6 +452,19 @@ body {
 
 /* Le timer  */
 .timer {
+    font-family: 'Cinzel', serif;
+    color: #402505;
+    background: #f1d293;
+    display: inline-block;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+}
+
+.timerc {
     font-family: 'Cinzel', serif;
     color: #402505;
     background: #f1d293;
