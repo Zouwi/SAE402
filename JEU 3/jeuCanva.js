@@ -37,11 +37,11 @@ function dessiner(event) {
     if (gommeActive) {
         ctx.clearRect(x2 - 10, y2 - 10, 20, 20);
     } else { // Sinon, dessiner normalement
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.fillStyle = "rgba(255,255,255,0.3)";
-        ctx.fillRect(0, 0, W, H);
-        ctx.fill();
+        // ctx.beginPath();
+        // ctx.moveTo(x, y);
+        // ctx.fillStyle = "rgba(255,255,255,0.3)";
+        // ctx.fillRect(0, 0, W, H);
+        // ctx.fill();
         ctx.lineTo(x2, y2);
         ctx.lineCap = "round";
         ctx.lineWidth = 12;
@@ -77,10 +77,29 @@ function dessiner(event) {
 // }
 
 // Réccupérer une image 
-function genererImage() {
-    let image = canvas.toDataURL("image/png");
-    console.log(image);
-}
+// function genererImage() {
+//     let image = canvas.toDataURL("image/png");
+//     console.log(image);
+//     let img = document.createElement("img");
+//     img.src = image;
+//     document.querySelector(".modele").appendChild(img);
+//     // document.querySelector(".modele").innerHTML = image;
+// }
+// Télécharger l'image 
+// Ajouter un écouteur d'événement pour le bouton de téléchargement
+const downloadBtn = document.querySelector(".btn");
+downloadBtn.addEventListener('click', function () {
+    // Récupérer l'image du canvas en tant que URL
+    const url = canvas.toDataURL('image/png');
+
+    // Créer un lien de téléchargement
+    const link = document.createElement('a');
+    link.download = 'mon_dessin.png';
+    link.href = url;
+
+    // Cliquer sur le lien pour déclencher le téléchargement
+    link.click();
+});
 
 document.querySelector(".stp").addEventListener("click", (e) => {
     e.preventDefault()

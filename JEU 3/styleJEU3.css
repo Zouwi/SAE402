@@ -400,6 +400,13 @@ body {
     opacity: 0;
 }
 
+/* Partie CANVA RECUP IMG */
+.modele {
+    width: 300px;
+    height: 300px;
+}
+
+
 /* Boite de crédit  */
 .title {
     font-family: 'cinzel', serif;
