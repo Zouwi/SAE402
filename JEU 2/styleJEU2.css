@@ -402,6 +402,26 @@ h1 {
     z-index: 3;
 }
 
+
+.soluce {
+    position: absolute;
+    right: 30px;
+    bottom: -150px;
+}
+
+.sur {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.croixS {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+}
+
 /* JEU HIDE AND SIKE  */
 .hide {
     margin: 0;

@@ -53,18 +53,37 @@ function dessiner(event) {
 }
 
 
-// Réccupérer une image 
+// Récupérer une image 
 
 // Récupérer les données de l'image
-const imageData = ctx.getImageData(0, 0, W, H);
+let imageData = ctx.getImageData(0, 0, W, H);
+// const data = imageData.data;
+// const partLength = data.length / 4;
+
+// const firstHalf = data.slice(0, partLength);
+// const secondHalf = data.slice(partLength, partLength * 2);
+// const thirdHalf = data.slice(partLength * 2, partLength * 3);
+// const fourthHalf = data.slice(partLength * 3, partLength * 4);
+console.log(imageData);
+
+// Convertir chaque moitié en une nouvelle ImageData
+// const image1 = new ImageData(new Uint8ClampedArray(firstHalf), imageData.width, imageData.height);
+// const image2 = new ImageData(new Uint8ClampedArray(secondHalf), imageData.width, imageData.height);
+
 const dataUrl = canvas.toDataURL();
 
 
 // Stocker les données de l'image dans le localStorage
 document.querySelector(".btnCanva").addEventListener("click", () => {
-    localStorage.setItem('imageData', JSON.stringify(imageData));
+    
+    let imageDataString = JSON.stringify(imageData);
+    localStorage.setItem('imageData', imageDataString);
+    console.log(imageDataString);
+    // localStorage.setItem('imageData2', JSON.stringify(secondHalf));
+    // localStorage.setItem('imageData3', JSON.stringify(thirdHalf));
+    // localStorage.setItem('imageData4', JSON.stringify(fourthHalf));
     localStorage.setItem('dataUrl', dataUrl);
-    console.log('imageData');
+    console.log(imageData)
 })
 
 // function genererImage() {
@@ -125,28 +144,15 @@ function effacer() {
 }
 
 // Les modèles aléatoires 
-let aleatoire = Math.round(Math.random() * 2 + 1);
+let aleatoire = Math.round(Math.random() * 6 + 1);
 console.log(aleatoire);
 
-if (aleatoire == 1) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".cat").classList.remove("disparu");
-}
-else if (aleatoire == 2) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".elephant").classList.remove("disparu");
-}
+document.querySelectorAll(".mot").forEach(e => {
+    if (aleatoire == e.dataset.animal) {
+        e.classList.remove("disparu");
+    }
+})
 
-else if (aleatoire == 3) {
-    document.querySelectorAll(".parent>*").forEach(e => {
-        e.classList.add("disparu");
-    })
-    document.querySelector(".turtle").classList.remove("disparu");
-}
 
 // Le menu qui s'ouvre 
 document.querySelector(".languette").addEventListener("click", ouvre);

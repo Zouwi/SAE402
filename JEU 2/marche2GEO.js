@@ -34,6 +34,23 @@ function croixCode() {
     })
 }
 
+// Afficher la soluce 
+document.querySelector(".soluce").addEventListener("click", () => {
+    document.querySelector(".sur").classList.remove("disparu");
+    document.querySelector(".assombrir2").classList.remove("disparu");
+})
+
+document.querySelector(".croixS").addEventListener("click", () => {
+    document.querySelector(".sur").classList.add("disparu");
+    document.querySelector(".assombrir2").classList.add("disparu");
+})
+
+document.querySelector(".btn").addEventListener("click", () => {
+    document.querySelector(".nomO").innerText = "What if the mysterious code was written backwards? Like in a mirror. We discover a charade where the whole is E4. By taking the map of Mulhouse you can discover your next destination."
+    document.querySelector(".title").innerText = "The solution";
+    document.querySelector(".btn").classList.add("disparu2");
+})
+
 // La géolocalisation 
 var watchID;
 var geoLoc;

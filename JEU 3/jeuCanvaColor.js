@@ -1,8 +1,10 @@
 // const canvg = require('canvg');
 // Partie CANVAS 
 // Le dessin 
-const imageData = JSON.parse(localStorage.getItem('imageData'));
+const imageDataString = localStorage.getItem('imageData');
+let imageData = JSON.parse(imageDataString);
 const dataUrl = localStorage.getItem('dataUrl');
+console.log(imageData);
 
 const canvas = document.querySelector(".toile");
 const ctx = canvas.getContext("2d");
@@ -14,6 +16,17 @@ canvas.width = W;
 canvas.height = H;
 
 let x, y;
+
+// Dessiner l'image sur le canvas
+const img = new Image();
+img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+};
+img.src = dataUrl;
+
+// Restaurer les données de l'image dans le canvas
+ctx.putImageData(imageData, 0, 0);
+
 
 canvas.addEventListener("touchstart", demarrerDessin);
 canvas.addEventListener("touchmove", dessiner);
@@ -56,15 +69,7 @@ function arreterDessin() {
     ctx.closePath();
 }
 
-// Dessiner l'image sur le canvas
-const img = new Image();
-img.onload = () => {
-    ctx.drawImage(img, 0, 0);
-};
-img.src = dataUrl;
 
-// Restaurer les données de l'image dans le canvas
-ctx.putImageData(imageData, 0, 0);
 
 // Télécharger l'image 
 // Ajouter un écouteur d'événement pour le bouton de téléchargement

@@ -280,6 +280,19 @@ body {
     border-radius: 25px;
 }
 
+.parent {
+    background-color: #f1d293;
+    display: flex;
+    gap: 5px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 50px 50px 0px;
+    font-family: 'Arvo', serif;
+    color: #402505;
+    position: absolute;
+    top: 150px;
+}
+
+
 .elephant {
     position: fixed;
     width: 80%;

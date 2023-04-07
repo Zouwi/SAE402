@@ -34,6 +34,23 @@ function croixCode() {
     })
 }
 
+// Afficher la soluce 
+document.querySelector(".soluce").addEventListener("click", () => {
+    document.querySelector(".sur").classList.remove("disparu");
+    document.querySelector(".assombrir2").classList.remove("disparu");
+})
+
+document.querySelector(".croixS").addEventListener("click", () => {
+    document.querySelector(".sur").classList.add("disparu");
+    document.querySelector(".assombrir2").classList.add("disparu");
+})
+
+document.querySelector(".btn").addEventListener("click", () => {
+    document.querySelector(".nomO").innerText = "The fountain has 120 frogs in all, all different sizes. Thanks to the mysterious code, 120 corresponds to E3 and a lily symbol. If you refer to the map of Mulhouse, finding the next destination is a breeze."
+    document.querySelector(".title").innerText = "The solution";
+    document.querySelector(".btn").classList.add("disparu2");
+})
+
 // La géolocalisation 
 var watchID;
 var geoLoc;
