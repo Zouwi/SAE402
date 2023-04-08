@@ -19,7 +19,6 @@ function dialogue() {
         document.querySelector(e).classList.remove("disparu");
     });
 
-    console.log(compteur);
     // Enlever des éléments 
     if (doto[compteur].invisible) {
         doto[compteur].invisible.forEach(e => {
@@ -55,6 +54,7 @@ function dialogue() {
         // document.querySelector(".toile").classList.add("audessus");
         document.querySelector(".modele").classList.remove("disparu");
         document.querySelector(".dialogue").classList.add("disparu");
+        demarrerMinuteur2();
     }
     compteur++
 }
@@ -335,7 +335,7 @@ function ouvre() {
 
 // Minuteur 
 // Temps initial en secondes
-let tempsInitial = 30;
+let tempsInitial = 20;
 
 function demarrerMinuteur() {
     // Mettre à jour le temps restant toutes les secondes
@@ -345,15 +345,40 @@ function demarrerMinuteur() {
         document.querySelector(".timer").innerHTML = "00:" + tempsRestant;
         if (tempsRestant == 0) {
             clearInterval(intervalId);
-            window.location.href = "suite.html";
+            genererImage();
+            document.querySelector(".dialogue").classList.remove("disparu");
+            document.querySelector(".canva1").classList.add("disparu");
         }
     }, 1000);
     window.tempsRestant = tempsRestant;
 }
 
 // Démarrer le minuteur
-// demarrerMinuteur();
+demarrerMinuteur();
 
+// Minuteur 2
+// Temps initial en secondes
+let tempsInitial2 = 30;
+
+function demarrerMinuteur2() {
+    // Mettre à jour le temps restant toutes les secondes
+    let tempsRestant2 = tempsInitial2;
+    let intervalId2 = setInterval(function () {
+        tempsRestant2--;
+        document.querySelector(".timerc").innerHTML = "00:" + tempsRestant2;
+        if (tempsRestant2 == 0) {
+            clearInterval(intervalId2);
+            genererImage2();
+            document.querySelector(".canva2").classList.add("disparu");
+            document.querySelector(".dialogue2").classList.remove("disparu");
+            document.querySelector(".dialogue2").classList.add("final");
+        }
+    }, 1000);
+    window.tempsRestant2 = tempsRestant2;
+}
+// if (document.querySelector(".toile2")) {
+//     demarrerMinuteur2()
+// }
 // Passer de dessin1 à Dialogue 
 document.querySelector(".btnCanva").addEventListener("click", (e) => {
     e.preventDefault()
@@ -363,22 +388,25 @@ document.querySelector(".btnCanva").addEventListener("click", (e) => {
 })
 
 // Finition dessin 2
+
 document.querySelector(".btnc").addEventListener("click", (e) => {
     e.preventDefault()
     genererImage2();
     document.querySelector(".canva2").classList.add("disparu");
     document.querySelector(".dialogue2").classList.remove("disparu");
-    document.querySelector(".texte").classList.add("final");
+    document.querySelector(".dialogue2").classList.add("final");
+})
 
+document.querySelector(".btnF").addEventListener("click", () => {
     // Fusion des deux balises img 
     const image1 = document.querySelector(".contour");
     const image2 = document.querySelector(".couleur");
     let div = document.querySelector(".modele");
-    let div2 = document.querySelector(".render");
+    // let div2 = document.querySelector(".render");
     // let div3 = document.createElement("final");
 
     const canvasF = document.createElement("canvas");
-    canvasF.classList.add("fusion");
+    // document.querySelector("body").appendChild(canvasF);
     canvasF.width = window.innerWidth;
     canvasF.height = window.innerHeight;
 
@@ -386,44 +414,42 @@ document.querySelector(".btnc").addEventListener("click", (e) => {
     ctxF.drawImage(image2, 0, 0);
     ctxF.drawImage(image1, 0, 0);
 
+
     function genererImage3() {
         let imageFinal = canvasF.toDataURL("image/png");
         let imgFinal = document.createElement("img");
         imgFinal.classList.add("imgFinal");
         imgFinal.src = imageFinal;
         document.querySelector(".render").appendChild(imgFinal);
-        // document.querySelector(".modele").innerHTML = image;
     }
 
     // const mergedImage = new Image();
     // mergedImage.src = canvas.toDataURL();
 
-    div.removeChild(image1);
-    div.removeChild(image2);
+    // div.removeChild(image1);
+    // div.removeChild(image2);
     genererImage3();
+
+    // Télécharger l'image 
+    // Ajouter un écouteur d'événement pour le bouton de téléchargement
+    function telecharger() {
+        const linkImg = document.querySelector(".imgFinal");
+        // Créer un lien de téléchargement
+        const link = document.createElement('a');
+        link.download = 'mon_dessin.png';
+        link.href = linkImg.src;
+
+        // Cliquer sur le lien pour déclencher le téléchargement
+        link.click();
+    };
+    telecharger();
 })
 
-// Télécharger l'image 
-// Ajouter un écouteur d'événement pour le bouton de téléchargement
-const downloadBtn = document.querySelector(".btnF");
-downloadBtn.addEventListener('click', function () {
-    // Récupérer l'image du canvas en tant que URL
-    const url = canvasF.toDataURL('image/png');
-
-    // Créer un lien de téléchargement
-    const link = document.createElement('a');
-    link.download = 'mon_dessin.png';
-    link.href = url;
-
-    // Cliquer sur le lien pour déclencher le téléchargement
-    link.click();
-});
 
 
 // Se déplacer du téléchargement aux crédits 
-if (document.querySelector(".final").contains = "We have completed our mission! Look how beautiful our fabric turned out.") {
-    document.querySelector(".boite").addEventListener("click", () => {
-        window.location.href = "afterJEU3.html";
-    })
-}
+document.querySelector(".boiteF").addEventListener("click", () => {
+    window.location.href = "afterJEU3.html";
+})
+
 
