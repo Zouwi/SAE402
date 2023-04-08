@@ -376,9 +376,7 @@ function demarrerMinuteur2() {
     }, 1000);
     window.tempsRestant2 = tempsRestant2;
 }
-// if (document.querySelector(".toile2")) {
-//     demarrerMinuteur2()
-// }
+
 // Passer de dessin1 à Dialogue 
 document.querySelector(".btnCanva").addEventListener("click", (e) => {
     e.preventDefault()
