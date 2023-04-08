@@ -145,20 +145,16 @@ doto = [
         ],
         "bulle": "Anna"
     },
-];
-
-diti = [
     {
-        "texte": "I just need to go back to the D.M.C. factory to tell them about our adventure! I have enough information about textiles in Mulhouse.",
+        "texte": "",
         "visible": [
             ".player",
-            ".mulhouse"
-        ],
-        "invisible": [
-            ".textile",
         ],
         "bulle": "Anna"
     },
+];
+
+diti = [
     {
         "texte": "If you want to learn more, don't hesitate to visit the Textile Printing Museum. It's really cool!",
         "visible": [
