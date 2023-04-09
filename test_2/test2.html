@@ -1,7 +1,7 @@
 <div class="parent1">
-    <div id="" class=" drag-element draggable">Glissez-moi !</div>
-    <div id="" class=" drag-element draggable">Glissez-moi !</div>
-    <div id="" class=" drag-element draggable">Glissez-moi !</div>
+    <div id="" class="drag-element draggable" data-cible="drop-zone1">Glissez-moi !</div>
+    <div id="" class="drag-element draggable">Glissez-moi !</div>
+    <div id="" class="drag-element draggable">Glissez-moi !</div>
   </div>
   
   <div class="parent2">
@@ -10,7 +10,10 @@
   
   
   <style>
-  
+    
+  .parent1{
+    filter: url(#goo);
+  }
   .parent1, .parent2 {
     width: 200px;
     height: 200px;
@@ -18,7 +21,6 @@
     margin: 10px;
     padding: 10px;
   }
-  
   .draggable {
     width: 100px;
     height: 50px;
@@ -36,96 +38,50 @@
     text-align: center;
     line-height: 200px;
   }
+
+  #drop-zone{
+    filter: url(#goo);
+  }
   
   </style>
   
-  
-   <script>
-  
-  const dragElement = document.querySelectorAll('.drag-element');
-  dragElement.forEach(e=>{
-    e.addEventListener('mousedown', dragStart);
-    e.addEventListener('mousedown', dragEnd);
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="20" ></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 26 -10" result="goo" ></feColorMatrix>
+        <!--<feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend>-->
+      </filter>
+    </defs>
+  </svg>
 
-  });
-  console.log(dragElement );
-  const dropZone = document.getElementById('drop-zone');
-  
-  let isDragging = false;
-  let currentX;
-  let currentY;
-  let initialX;
-  let initialY;
-  let xOffset = 0;
-  let yOffset = 0;
-  
-  // Événement mousedown sur l'élément draggable
-  // dragElement.addEventListener('mousedown', dragStart);
-  
-  // Événement mousemove sur la fenêtre
-  window.addEventListener('mousemove', drag);
-  
-  // Événement mouseup sur l'élément draggable
-  // dragElement.addEventListener('mouseup', dragEnd);
-  
-  function dragStart(e) {
-    initialX = e.pageX - xOffset;
-    initialY = e.pageY - yOffset;
-  
-    if (e.target === dragElement) {
-      isDragging = true;
-    }
-  }
-  
-  function drag(e) {
-    if (isDragging) {
-      e.preventDefault();
-  
-      currentX = e.pageX - initialX;
-      currentY = e.pageY - initialY;
-  
-      xOffset = currentX;
-      yOffset = currentY;
-  
-      setTranslate(currentX, currentY, dragElement);
-    }
-  }
-  
-  function dragEnd(e) {
-  initialX = currentX;
-  initialY = currentY;
+<script src="js/script3_versionALL.js"></script>
+<!-- <script src="js/script_4.js"></script> -->
 
-  isDragging = false;
 
-  if (isDropped(e)) {
-    alert('Bravo, vous avez réussi !');
-  } else {
-    xOffset = 0;
-    yOffset = 0;
-    setTranslate(0, 0, dragElement);
-  }
-}
-  
-  function setTranslate(xPos, yPos, el) {
-    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-  }
-  
-  function isDropped(e) {
-    const dropZoneRect = dropZone.getBoundingClientRect();
-    const dragElementRect = dragElement.getBoundingClientRect();
-  
-    return (
-      dragElementRect.left >= dropZoneRect.left &&
-      dragElementRect.right <= dropZoneRect.right &&
-      dragElementRect.top >= dropZoneRect.top &&
-      dragElementRect.bottom <= dropZoneRect.bottom
-    );
-  }
-  
-  </script>
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- correction chatGPT -->
-<script>
+<!-- <script>
   const dragElement = document.querySelectorAll('.drag-element');
 dragElement.forEach(e=>{
   e.addEventListener('mousedown', dragStart);
@@ -181,7 +137,7 @@ function dragEnd(e) {
 }
 
 function setTranslate(xPos, yPos, el) {
-  el.style.transform = translate3d(${xPos}px, ${yPos}px, 0);
+  el.style.transform = translate3d('${xPos}px, ${yPos}px, 0');
 }
 
 function isDropped(element) {
@@ -202,4 +158,4 @@ function isDropped(element) {
 
   return isInsideDropZone;
 }
-</script>
+</script> -->
