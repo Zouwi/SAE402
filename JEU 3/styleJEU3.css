@@ -1,0 +1,742 @@
+.jeu3 {
+    margin: 0;
+    background: url(../img/BACKGROUND/museum.jpg);
+    background-position: 0 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+/* CLASSE COMMUNE  */
+.apparition {
+    display: block;
+}
+
+.disparu {
+    display: none;
+}
+
+
+
+
+.pointer {
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    width: 50px;
+}
+
+
+
+.main {
+    animation: bouge 1s linear infinite alternate;
+}
+
+/* Animation pointer  */
+@keyframes bouge {
+    0% {
+        transform: translate(100px, 150px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+
+.jeu2 {
+    background: url(../img/BACKGROUND/PlaceReunion3.jpg);
+    background-size: cover;
+    background-position: 0 -140px;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow: hidden;
+}
+
+.perso {
+    position: absolute;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+}
+
+.player {
+    width: 65%;
+    bottom: 0px;
+    position: fixed;
+    z-index: -1;
+    transition: 1.5s;
+}
+
+.artist {
+    width: 50%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.graver {
+    width: 60%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.print {
+    width: 70%;
+    position: fixed;
+    transform: scaleX(-1);
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.parentBoite {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    transition: 1.5s;
+}
+
+.boite {
+    background: #FFFEF7;
+    width: 100%;
+    height: 19%;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    bottom: 50px;
+    left: 0px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    z-index: 2;
+}
+
+.boiteF {
+    background: #FFFEF7;
+    width: 100%;
+    height: 19%;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    bottom: 50px;
+    left: 0px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    z-index: 2;
+}
+
+.name {
+    font-family: 'Arvo', serif;
+    background-color: #FFFEF7;
+    border: 2px solid #402505;
+    box-shadow: 3px 3px 0px #402505;
+    padding: 5px 20px 5px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 195px;
+    left: 20px;
+    font-weight: bold;
+    z-index: 3;
+}
+
+.texte {
+    padding: 30px;
+    display: none;
+}
+
+.texteF {
+    padding: 30px;
+    display: none;
+}
+
+.orneDore1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 113px;
+}
+
+.orneDore2 {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 0px;
+    left: 0px;
+    width: 113px;
+}
+
+.show {
+    display: block;
+}
+
+.devant {
+    z-index: 1;
+}
+
+.assombrir {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
+}
+
+/* Style pour le jeu  */
+.toile {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    position: relative;
+}
+
+.menu {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    position: relative;
+    border-radius: 10px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    display: block;
+}
+
+.outils {
+    display: flex;
+    justify-items: center;
+}
+
+.languette {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    border-top: none;
+    display: inline-block;
+    padding: 8px 10px 0px 10px;
+    border-radius: 0px 0px 10px 10px;
+    position: absolute;
+    top: 89px;
+    transition: 0.2s;
+}
+
+.rotation {
+    transform: rotate(180deg);
+}
+
+.translation {
+    top: -96.5px;
+}
+
+.palette {
+    /* position: fixed;
+    top: 0px;
+    right: 0px; */
+    display: flex;
+}
+
+.palette>* {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.taille {
+    /* position: fixed;
+    top: 440px;
+    right: 0px; */
+    margin: 10px;
+    display: flex;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.taille1 {
+    width: 10px;
+    height: 10px;
+}
+
+.taille2 {
+    width: 20px;
+    height: 20px;
+}
+
+.taille5 {
+    width: 30px;
+    height: 30px;
+}
+
+.taille10 {
+    width: 40px;
+    height: 40px;
+}
+
+.taille30 {
+    width: 50px;
+    height: 50px;
+}
+
+.taille>* {
+    margin: auto 5px auto 5px;
+    background-color: #402505;
+    border-radius: 50px;
+}
+
+.gommage {
+    width: 10%;
+    height: 10%;
+    margin: 14px 10px 10px 10px;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.parent {
+    background-color: #f1d293;
+    display: flex;
+    gap: 5px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 50px 50px 0px;
+    font-family: 'Arvo', serif;
+    color: #402505;
+    position: absolute;
+    top: 150px;
+}
+
+.parentC {
+    background-color: #f1d293;
+    display: flex;
+    gap: 5px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 0px 50px 50px 0px;
+    font-family: 'Arvo', serif;
+    color: #402505;
+    position: absolute;
+    top: 200px;
+}
+
+
+.elephant {
+    position: fixed;
+    width: 80%;
+    top: 280px;
+    left: 10%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.cat {
+    position: fixed;
+    width: 80%;
+    top: 280px;
+    left: 10%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.turtle {
+    position: fixed;
+    width: 80%;
+    top: 280px;
+    left: 10%;
+    margin: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.disparu {
+    display: none;
+}
+
+.btnCanva {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 20pt;
+    color: #402505;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    margin: auto;
+}
+
+.btnF {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 20pt;
+    color: #402505;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    margin: auto;
+}
+
+/* Deuxième CANVA  */
+.menuc {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    position: relative;
+    border-radius: 10px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    display: block;
+}
+
+.outilsc {
+    display: flex;
+    justify-items: center;
+}
+
+.gommageC {
+    width: 10%;
+    height: 10%;
+    margin: 14px 10px 10px 10px;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.languettec {
+    background-color: #FFFEF7;
+    border: 3px solid #B88014;
+    border-top: none;
+    display: inline-block;
+    padding: 8px 10px 0px 10px;
+    border-radius: 0px 0px 10px 10px;
+    position: absolute;
+    top: 139px;
+    transition: 0.2s;
+}
+
+.rotationc {
+    transform: rotate(180deg);
+}
+
+.translationc {
+    top: -148px;
+}
+
+.palettec {
+    /* position: fixed;
+    top: 0px;
+    right: 0px; */
+    display: flex;
+}
+
+.palettec>* {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.taillec {
+    /* position: fixed;
+    top: 440px;
+    right: 0px; */
+    margin: 10px;
+    display: flex;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.taillec1 {
+    width: 10px;
+    height: 10px;
+}
+
+.taillec2 {
+    width: 20px;
+    height: 20px;
+}
+
+.taillec5 {
+    width: 30px;
+    height: 30px;
+}
+
+.taillec10 {
+    width: 40px;
+    height: 40px;
+}
+
+.taillec30 {
+    width: 50px;
+    height: 50px;
+}
+
+.taillec>* {
+    margin: auto 5px auto 5px;
+    background-color: #402505;
+    border-radius: 50px;
+}
+
+.gommagec {
+    width: 10%;
+    height: 10%;
+    margin: 14px 10px 10px 10px;
+    background-color: #f1d293;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.btnc {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 20pt;
+    color: #402505;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    margin: auto;
+}
+
+/* Le timer  */
+.timer {
+    font-family: 'Cinzel', serif;
+    color: #402505;
+    background: #f1d293;
+    display: inline-block;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+}
+
+.timerc {
+    font-family: 'Cinzel', serif;
+    color: #402505;
+    background: #f1d293;
+    display: inline-block;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 250px;
+    left: 0px;
+}
+
+/* Transition de temps  */
+.blanc {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 5;
+    animation: fade 2.5s linear forwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.workshop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    background: url(../img/BACKGROUND/workshop.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.textile {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    background: url(../img/BACKGROUND/textile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mulhouse {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    background: url(../img/BACKGROUND/accueil.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dialogue2 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: -1;
+    background: url(../img/BACKGROUND/accueil.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.disparu2 {
+    opacity: 0;
+}
+
+/* Partie CANVA RECUP IMG */
+.modele {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: -1;
+}
+
+.modele>img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
+/* Boite de crédit  */
+.title {
+    font-family: 'cinzel', serif;
+    margin: auto;
+    font-size: 20pt;
+    padding: 20px;
+    text-align: center;
+    color: #a26418;
+}
+
+.grosBoite {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.boiteO {
+    background: #FFFEF7;
+    width: 90%;
+    height: 40%;
+    border-radius: 5px;
+    text-align: left;
+    border: 3px solid #402505;
+    transition: 1s;
+    position: fixed;
+    top: 200px;
+    left: 20px;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.water {
+    width: 30%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.nomO {
+    transform: translate(0, 200px);
+    text-align: center;
+    margin: 20px;
+    font-family: 'Arvo';
+    color: #402505;
+    animation: credit 20s linear forwards;
+}
+
+@keyframes credit {
+    0% {
+        transform: translate(0, 200px);
+    }
+
+    100% {
+        transform: translate(0, -300px);
+    }
+}
+
+.btn {
+    font-family: 'Cinzel', serif;
+    background-color: #f1d293;
+    font-size: 15pt;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 180px;
+    text-align: center;
+    color: #402505;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.credit {
+    height: 60%;
+    overflow: hidden;
+}
+
+.dialogue {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: url(../img/BACKGROUND/museum.jpg);
+    background-position: 0 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -3;
+}
+
+.apparait {
+    display: block;
+}
+
+.audessus {
+    z-index: 5;
+}
+
+.final {
+    display: block;
+}
+
+.render {
+    width: 100%;
+    height: 100%;
+}

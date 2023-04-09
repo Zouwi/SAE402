@@ -1,5 +1,13 @@
+// Le dessin 
+
 const canvas = document.querySelector(".toile");
 const ctx = canvas.getContext("2d");
+let W = window.innerWidth;
+let H = window.innerHeight;
+
+canvas.width = W;
+canvas.height = H;
+
 let x, y;
 
 canvas.addEventListener("touchstart", demarrerDessin);
@@ -25,4 +33,55 @@ function dessiner(event) {
 
 function arreterDessin() {
     ctx.closePath();
+}
+
+// La palette de couleur 
+document.querySelectorAll(".palette>*").forEach(element => {
+    element.style.backgroundColor = element.dataset.couleur;
+    element.addEventListener("click", changeCouleur);
+    function changeCouleur() {
+        ctx.strokeStyle = element.dataset.couleur;
+    }
+})
+
+// Le changement de taille 
+document.querySelectorAll(".taille>*").forEach(element => {
+    element.addEventListener("click", changeTaille);
+    function changeTaille() {
+        ctx.lineWidth = element.dataset.taille;
+    }
+})
+
+// La gomme
+document.querySelector(".gommage").addEventListener("click", effacer);
+
+function effacer() {
+    ctx.lineWidth = 40;
+    ctx.strokeStyle = "white"
+    // ctx.clearRect(0, 0, 50, 50);
+    // canvas.setColor("white");
+}
+
+// Les modèles aléatoires 
+let aleatoire = Math.round(Math.random()*2 + 1);
+console.log(aleatoire);
+
+if (aleatoire == 1) {
+    document.querySelectorAll(".parent>*").forEach(e => {
+        e.classList.add("disparu");
+    })
+    document.querySelector(".cat").classList.remove("disparu");
+}
+else if (aleatoire == 2) {
+    document.querySelectorAll(".parent>*").forEach(e => {
+        e.classList.add("disparu");
+    })
+    document.querySelector(".elephant").classList.remove("disparu");
+}
+
+else if (aleatoire == 3) {
+    document.querySelectorAll(".parent>*").forEach(e => {
+        e.classList.add("disparu");
+    })
+    document.querySelector(".turtle").classList.remove("disparu");
 }

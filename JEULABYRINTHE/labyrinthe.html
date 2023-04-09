@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background: url(img/background.jpg);
+            background: url(img/background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        }
+
+        #labyrinthe{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            width: 100%;
+            
+        }
+
+        .pipe{
+            transform-origin: center;
+            display: flex;
+            margin: auto;
+        }
+
+        .pipe img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="labyrinthe">
+         <div class="pipe">
+            <img src="img/droit_1.png" alt="">
+        </div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+
+        <div class="pipe angle juste " data-ini="1" data-juste="3" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe droit juste" data-ini="1" data-juste="2" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="3" data-juste="1" data-num=3>
+            <img src="img/angle_3.png" alt="">
+        </div>
+        <div class="pipe croix">
+            <img src="img/croix.png" alt="">
+        </div>
+        <div class="pipe angle" data-ini="2" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+
+
+        <div class="pipe croix">
+            <img src="img/croix.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="2" data-num=2>
+            <img src="img/droit_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="2" data-juste="3" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="3" data-juste="1" data-num=3>
+            <img src="img/angle_3.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="1" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+
+        <div class="pipe vide"></div>
+        <div class="pipe angle juste" data-ini="1" data-juste="4" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe droit juste" data-ini="1" data-juste="2" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="3" data-juste="2" data-num=3>
+            <img src="img/angle_3.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="2" data-num=2>
+            <img src="img/droit_2.png" alt="">
+        </div>
+
+        <div class="pipe angle juste" data-ini="1" data-juste="4" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="2" data-juste="2" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe croix">
+            <img src="img/croix.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="1" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe vide"></div>
+
+        
+        <div class="pipe droit juste" data-ini="2" data-juste="1" data-num=2>
+            <img src="img/droit_2.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="1" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="2" data-juste="4" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="1" data-juste="1" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe croix">
+            <img src="img/croix.png" alt="">
+        </div>
+
+        <div class="pipe angle juste" data-ini="1" data-juste="3" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe droit juste" data-ini="1" data-juste="2" data-num=1>
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="4" data-juste="2" data-num=4>
+            <img src="img/angle_4.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="1" data-juste="3" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="3" data-juste="1" data-num=3>
+            <img src="img/angle_3.png" alt="">
+        </div>
+
+        <div class="pipe angle juste" data-ini="2" data-juste="4" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="1" data-juste="1" data-num=1>
+            <img src="img/angle_1.png" alt="">
+        </div>
+        <div class="pipe croix">
+            <img src="img/croix.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="2" data-juste="4" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="4" data-juste="2" data-num=4>
+            <img src="img/angle_4.png" alt="">
+        </div>
+
+        <div class="pipe droit juste" data-ini="2" data-juste="1" data-num=2>
+            <img src="img/droit_2.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="2" data-juste="3" data-num=2>
+            <img src="img/angle_2.png" alt="">
+        </div>
+        <div class="pipe droit juste" data-ini="1" data-juste="2" data-num=1 >
+            <img src="img/droit_1.png" alt="">
+        </div>
+        <div class="pipe angle juste" data-ini="4" data-juste="2" data-num=4>
+            <img src="img/angle_4.png" alt="">
+        </div>
+        <div class="pipe droit" data-ini="2" data-num=2>
+            <img src="img/droit_2.png" alt="">
+        </div>
+
+        <div class="pipe">
+            <img src="img/droit_1.png" alt="">
+        </div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+       <div class="vide"></div>
+        
+    </div>
+
+    <button id="submit">submit</button>
+    <script src="js/script_lab.js"></script>
+</body>
+</html>

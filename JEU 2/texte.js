@@ -41,6 +41,13 @@ data = [
             ".oldMan"
         ],
         "bulle": "An Old Man",
+    },
+    {
+        "texte": "I feel like this Lys Apothecary will continue to thrive for a long time to come...",
+        "visible": [
+            ".oldMan"
+        ],
+        "bulle": "An Old Man",
         "fin" : ""
     }
 ];
@@ -66,6 +73,40 @@ doto = [
             ".apoth"
         ],
         "bulle2": "The Apothecary"
+    },
+    {
+        "texte2": "",
+        "visible2": [
+            ".apoth"
+        ],
+        "bulle2": "The Apothecary",
+        "fin": "",
     }
 
+];
+
+diti = [
+    {
+        "texte": "Thank you very much, this is exactly the dye I wanted.",
+        "visible": [
+            ".player",
+            ".grosBoite",
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "We have the most important ingredient for our mission. But we still have a few steps to go before we can make our fabric.",
+        "visible": [
+            ".player"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "We have the most important ingredient for our mission. But we still have a few steps to go before we can make our fabric.",
+        "visible": [
+            ".player"
+        ],
+        "bulle": "Anna",
+        "fin": "",
+    },
 ];

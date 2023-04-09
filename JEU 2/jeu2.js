@@ -17,11 +17,11 @@ function dialogue() {
         document.querySelector(e).classList.add("devant");
         document.querySelector(e).classList.remove("disparu");
         setTimeout(() => {
-            document.querySelector(".pharmacy").classList.remove("disparu2");
-        }, 2500)
+            document.querySelector(".pharmacy").classList.remove("disparu");
+        }, 1500)
         setTimeout(() => {
             document.querySelector(".pharmacy").style.animation="indice 1s forwards";
-        }, 3500)
+        }, 1500)
     });
         
     // Affichage lettres par lettres 
@@ -44,4 +44,3 @@ function dialogue() {
     }
     compteur++;
 }
-

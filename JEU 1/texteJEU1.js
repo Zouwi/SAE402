@@ -38,7 +38,7 @@ data = [
         "visible": [
             ".plumber"
         ],
-        "bulle": "Plumber"
+        "bulle": "The Plumber"
     },
     {
         "texte": "Actually, we don't have time to waste.",
@@ -47,4 +47,67 @@ data = [
         ],
         "bulle": "Anna"
     },
+];
+
+doto = [
+    {
+        "texte": "Thank you so much, with your help I was able to finish much faster!",
+        "visible": [
+            ".plumber",
+        ],
+        "bulle": "The Plumber"
+    },
+    {
+        "texte": "Can I ask you a favor in return? I would like to collect some water to do some dyeing.",
+        "visible": [
+            ".player"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "Yes, of course, here you go.",
+        "visible": [
+            ".plumber",
+            ".grosBoite",
+        ],
+        "bulle": "The Plumber"
+    },
+    {
+        "texte": "I fixed the pipes, the frogs can be hydrated again.",
+        "visible": [
+            ".player",
+            ".marche",
+        ],
+        "invisible": [
+            ".tuyau",
+            ".plumber"
+        ],
+        "bulle": "Anna"
+    },
+    {
+        "texte": "Thank you so much! If only there was a fountain just for us in Place de la Paix.",
+        "visible": [
+            ".froggy"
+        ],
+        "bulle": "Froggy"
+    },
+    {
+        "texte": "The frogs were listened to, and in 2013 Quentin Garel created the Water Table. A fountain full of bronze frogs.",
+        "visible": [
+            ".fountain"
+        ],
+        "invisible": [
+            ".player",
+            ".froggy",
+            ".marche",
+            ".name",
+        ],
+        "bulle": "Narrator",
+    },
+    {
+        "texte": "",
+        "bulle": "",
+        "fin": "fin",
+    }
+
 ];
