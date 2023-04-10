@@ -205,10 +205,9 @@
 
 /* Style pour le jeu tuyau  */
 .parentBtn {
-    width: 100%;
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
+    color: #402505;
 }
 
 .btnT {
@@ -222,6 +221,35 @@
     text-align: center;
     color: #402505;
     margin: 10px auto auto auto;
+    border: none;
+}
+.boiteO>a {
+    margin: auto;
+    display: inline-block;
+}
+
+.faux {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    display: none;
+}
+
+.btnF {
+    font-family: 'Cinzel', serif;
+    background-color: #c95945;
+    font-size: 15pt;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    width: 80%;
+    text-align: center;
+    color: white;
+    margin: auto;
     border: none;
 }
 

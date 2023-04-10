@@ -26,6 +26,14 @@ function dialogue() {
         document.querySelector(e).classList.remove("disparu");
     });
 
+    // changement de page 
+    if (data[compteur].fin == "") {
+        document.querySelector(".boite").addEventListener("click", changePage);
+        function changePage() {
+            window.location.href = "labyrinthe.html";
+        }
+    }
+
     // Affichage lettres par lettres 
     let texte = data[compteur].texte;
     let position = 1;

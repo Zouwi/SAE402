@@ -45,8 +45,17 @@ data = [
         "visible": [
             ".player"
         ],
-        "bulle": "Anna"
+        "bulle": "Anna",
+        "fin": ""
     },
+    // {
+    //     "texte": "",
+        
+    //     "visible": [
+    //         ".player"
+    //     ],
+    //     "bulle": "Anna"
+    // },
 ];
 
 doto = [
