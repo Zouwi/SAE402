@@ -17,9 +17,10 @@
       background-repeat: no-repeat;
       background-size: 100%;
     }
+
     .fond {
       overflow: hidden;
-      
+
     }
 
     .parent1 {
@@ -27,7 +28,6 @@
       /* background-blend-mode: screen; */
 
       display: flex;
-      width: 95%;
     }
 
     .parent1,
@@ -39,17 +39,16 @@
     }
 
     .parent2 {
-      width: 98%;
       display: flex;
-      height: 50%;
+      justify-content: space-around;
     }
 
-    .zone {
+    /* .zone {
       background: url(./img/tube.svg);
       background-size: 100%;
       background-repeat: no-repeat;
       position: fixed;
-    }
+    } */
 
     .draggable {
       width: 100px;
@@ -64,42 +63,102 @@
     }
 
     .droppable {
-      width: 100%;
-      height: 100%;
+      width: 90px;
+      height: auto;
       /* border: 1px dashed #ccc; */
       text-align: center;
       line-height: 200px;
     }
 
+    .droppable>img {
+      width: 100%;
+      height: 100%;
+    }
+
     #drop-zone {
       filter: url(#goo);
     }
+
+    /* Boite d'explication  */
+    .parentBoite {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 0;
+    }
+
+    .boite {
+      background: #FFFEF7;
+      width: 100%;
+      height: 22%;
+      border-radius: 5px;
+      text-align: left;
+      border: 3px solid #402505;
+      transition: 1s;
+      position: fixed;
+      bottom: 30px;
+      left: 0px;
+      box-sizing: border-box;
+      font-family: 'Arvo', serif;
+      z-index: 2;
+    }
+
+    .texte {
+      padding: 30px;
+    }
+
+    .orneDore1 {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 113px;
+    }
+
+    .orneDore2 {
+      position: absolute;
+      transform: rotate(180deg);
+      bottom: 0px;
+      left: 0px;
+      width: 113px;
+    }
+
+    ul {
+      padding-left: 30px;
+      margin-top: 15px;
+    }
+
   </style>
 </head>
 
 <body>
   <div class="fond">
     <div class="parent1">
-      <div class="drag-element draggable" id="div1" data-target="zone1" style="background-color: aqua;"></div>
-      <div class="drag-element draggable" id="div2" data-target="zone2"></div>
-      <div class="drag-element draggable" id="div3" data-target="zone3"></div>
-      <div class="drag-element draggable" id="div4" data-target="zone1"></div>
+      <div class="drag-element draggable" id="div1" data-target="zone1" style="background-color: #ff595e;"></div>
+      <!-- <div class="drag-element draggable" id="div3" data-target="zone3"></div> -->
+      <!-- <div class="drag-element draggable" id="div4" data-target="zone1"></div>
       <div class="drag-element draggable" id="div5" data-target="zone2"></div>
-      <div class="drag-element draggable" id="div6" data-target="zone3"></div>
-      <div class="drag-element draggable" id="div7" data-target="zone1" style="background-color: green;"></div>
-      <div class="drag-element draggable" id="div8" data-target="zone2" style="background-color: yellow;"></div>
-      <div class="drag-element draggable" id="div9" data-target="zone3" style="background-color: pink;"></div>
-      <div class="drag-element draggable" id="div10" data-target="zone1" style="background-color: green;"></div>
-      <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
-      <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div>
+      <div class="drag-element draggable" id="div6" data-target="zone3"></div> -->
+      <div class="drag-element draggable" id="div7" data-target="zone1" style="background-color: #1982c4;"></div>
+      <div class="drag-element draggable" id="div2" data-target="zone2" style="background-color: #ff595e;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone2" style="background-color: #ffca3a;"></div>
+      <div class="drag-element draggable" id="div9" data-target="zone3" style="background-color: #e27396;"></div>
+      <div class="drag-element draggable" id="div10" data-target="zone1" style="background-color: #2b2d42;"></div>
+      <!-- <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
+      <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div> -->
 
     </div>
 
 
     <div class="parent2">
-      <div class="zone zone1 droppable" id="zone1" data-target="div1"></div>
-      <div class="zone zone2 droppable" id="zone2" data-target="div2"></div>
-      <div class="zone zone3 droppable" id="zone3" data-target="div3"></div>
+      <div class="zone zone1 droppable" id="zone1" data-target="div1">
+        <img src="./img/tube.svg" alt="tube_1">
+      </div>
+      <div class="zone zone2 droppable" id="zone2" data-target="div2">
+        <img src="./img/tube.svg" alt="tube_2">
+      </div>
+      <div class="zone zone3 droppable" id="zone3" data-target="div3">
+        <img src="./img/tube.svg" alt="tube_3">
+      </div>
     </div>
 
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -112,6 +171,27 @@
         </filter>
       </defs>
     </svg>
+    <div class="parentBoite">
+      <div class="boite">
+        <div class="texte">
+          Mix the different color powders to obtain three different shades:
+          <ul>
+            <li>
+              First bottle: orange
+            </li>
+            <li>
+              Second bottle: purple
+            </li>
+            <li>
+              third bottle: brown
+            </li>
+          </ul>
+        </div>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <img class="orneDore1" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+        <img class="orneDore2" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+      </div>
+    </div>
   </div>
   <script>
     //   const dragElements = document.querySelectorAll('.drag-element');
