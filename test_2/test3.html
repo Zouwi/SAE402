@@ -1,7 +1,11 @@
 <div class="parent1">
-<div class="drag-element draggable" id="div1" data-target="zone1"></div>
+<div class="drag-element draggable" id="div1" data-target="zone1" style="background-color: aqua;"></div>
 <div class="drag-element draggable" id="div2" data-target="zone2"></div>
 <div class="drag-element draggable" id="div3" data-target="zone3"></div>
+<div class="drag-element draggable" id="div3" data-target="zone1"></div>
+<div class="drag-element draggable" id="div3" data-target="zone2"></div>
+<div class="drag-element draggable" id="div3" data-target="zone3"></div>
+<div class="drag-element draggable" id="div3" data-target="zone1"></div>
 </div>
 
 
@@ -26,6 +30,7 @@
     
     .parent1{
       filter: url(#goo);
+      background-blend-mode: screen;
     }
     .parent1, .parent2 {
       width: 200px;
@@ -34,10 +39,16 @@
       margin: 10px;
       padding: 10px;
     }
+    .parent2{
+      width: 500px;
+      display: flex;
+      height: 500px;
+    }
     .draggable {
       width: 100px;
       height: 50px;
       background-color: #f00;
+      background-blend-mode: screen;
       color: #fff;
       text-align: center;
       line-height: 50px;
@@ -117,10 +128,13 @@
       isDragging = false;
   
       if (isDropped(e, activeElement)) {
-        alert('Bravo, vous avez réussi !');
-        activeElement.classList.remove("drag-element");
+        
+        // activeElement.classList.remove("drag-element");
         xOffset = 0;
         yOffset = 0;
+        if(verif_fin_jeu.length==6){
+          alert('Bravo, vous avez réussi !');
+        }
       } else {
         xOffset = 0;
         yOffset = 0;
