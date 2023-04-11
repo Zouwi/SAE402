@@ -31,12 +31,12 @@ function showLocation(position) {
     let cibleY = 7.33568686370776;
     // let margeX = 47.74429340911071;
     // let margeY = 7.336178116284078;
-    let marge = 0.00012;
+    let marge = 0.017;
     if (latitude > (cibleX - marge) && latitude < (cibleX + marge) &&
     longitude > (cibleY - marge) && longitude < (cibleY + marge)) {
         // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
-        navigator.vibrate(1000);
+        window.navigator.vibrate(1000);
     }
 }
 
