@@ -21,7 +21,8 @@ function dialogueIntro() {
     if (data[compteur].titre == "First mission") {
         document.querySelector(".intro").addEventListener("click", changePage);
         function changePage() {
-            window.location.href = "marche.html";
+            document.querySelector(".intro").classList.add("disparu");
+            // window.location.href = "marche.html";
         }
     }
 
