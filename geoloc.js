@@ -36,6 +36,7 @@ function showLocation(position) {
     longitude > (cibleY - marge) && longitude < (cibleY + marge)) {
         // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
+        navigator.vibrate(1000);
     }
 }
 
