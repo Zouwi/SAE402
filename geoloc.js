@@ -29,10 +29,11 @@ function showLocation(position) {
     var longitude = position.coords.longitude;
     let cibleX = 47.74428694412362;
     let cibleY = 7.33568686370776;
-    let margeX = (47.74429780432605 - 47.744292340461335);
-    let margeY = (7.33569646834205 - 7.33566396664148);
-    if (latitude > (cibleX - margeX) && latitude < (cibleX + margeX) &&
-        longitude > (cibleY - margeY) && longitude < (cibleY + margeY)) {
+    // let margeX = 47.74429340911071;
+    // let margeY = 7.336178116284078;
+    let marge = 0.00012;
+    if (latitude > (cibleX - marge) && latitude < (cibleX + marge) &&
+    longitude > (cibleY - marge) && longitude < (cibleY + marge)) {
         // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
     }
@@ -60,3 +61,17 @@ function getLocationUpdate() {
 }
 getLocationUpdate()
 
+// 47.744353873321685, 7.335687479396455
+// 47.74419605247076, 7.335596372803968
+// 47.744348103646644, 7.335562503834389
+// 47.744496100338054, 7.335248318205921
+
+
+// 47.74508170143113, 7.335482901586496
+// 47.74659502046234, 7.3331967690052
+
+
+// 47.74441559960202, 7.335578070304931
+// 47.74417108272443, 7.335764667860924
+// 47.7443491082841, 7.335621131279391
+// 47.74428905153684, 7.335648243744791
