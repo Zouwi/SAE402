@@ -27,11 +27,11 @@ var geoLoc;
 function showLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    let cibleX = 47.74428694412362;
-    let cibleY = 7.33568686370776;
+    let cibleX = 47.74430530018104;
+    let cibleY = 7.335650569230543;
     // let margeX = 47.74429340911071;
     // let margeY = 7.336178116284078;
-    let marge = 0.017;
+    let marge = 0.00031;
     if (latitude > (cibleX - marge) && latitude < (cibleX + marge) &&
     longitude > (cibleY - marge) && longitude < (cibleY + marge)) {
         // if (latitude == cibleL && longitude == ciblel) {
@@ -76,3 +76,5 @@ getLocationUpdate()
 // 47.74417108272443, 7.335764667860924
 // 47.7443491082841, 7.335621131279391
 // 47.74428905153684, 7.335648243744791
+
+// 47.74448757114194, 7.3353449524809875

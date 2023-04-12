@@ -14,14 +14,14 @@
         body {
             margin: 0;
             background: url(img/background.jpg);
-            background: url(img/background.jpg);
+            background-size: 100%;
             background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
             position: relative;
+            overflow: hidden;
         }
 
         #labyrinthe {
+            position: fixed;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             width: 100%;
@@ -36,6 +36,16 @@
 
         .pipe img {
             width: 100%;
+        }
+
+        @media screen and (max-height: 700px) {
+            .pipe img {
+                width: 100%;
+            }
+            #labyrinthe {
+                grid-template-columns: 60px 60px 60px 60px 60px;
+                margin: 0px 30px 0px 30px;
+            }
         }
     </style>
 </head>

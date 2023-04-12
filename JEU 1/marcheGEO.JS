@@ -8,7 +8,7 @@ function mapPop() {
 };
 
 // Fermer la map 
-document.querySelector(".croix").addEventListener("click", croix);
+document.querySelector(".croixM").addEventListener("click", croix);
 
 function croix() {
     document.querySelectorAll(".big>*").forEach(e => {

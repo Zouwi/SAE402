@@ -16,8 +16,8 @@
 
 .pointer {
     position: absolute;
-    right: 10px;
-    bottom: 0px;
+    right: 2%;
+    bottom: -2%;
     width: 50px;
 }
 
@@ -122,16 +122,23 @@
     padding: 5px 20px 5px 20px;
     display: inline-block;
     border-radius: 5px;
-    position: fixed;
-    bottom: 195px;
-    left: 20px;
+    position: absolute;
+    top: -15%;
+    left: 10%;
     font-weight: bold;
     z-index: 3;
 }
 
 .texte {
-    padding: 30px;
+    padding: 6%;
     display: none;
+    
+}
+
+@media screen and (max-height: 700px) {
+    .texte {
+        font-size: 11pt;
+    }
 }
 
 .orneDore1 {
@@ -222,6 +229,9 @@
     color: #402505;
     margin: 10px auto auto auto;
     border: none;
+    position: fixed;
+    bottom: 5px;
+    left: 25%;
 }
 .boiteO>a {
     margin: auto;
@@ -317,6 +327,7 @@
 
 /* Page pour la marche  */
 .chemin {
+    position: fixed;
     margin: 0px;
     background-image: url(../img/BACKGROUND/pexels-pixabay-235985.jpg);
     background-position: 0px;
@@ -343,6 +354,15 @@
     width: 300px;
     border-radius: 10px;
     box-shadow: 4px 5px 0px #402505;
+}
+
+@media screen and (max-height: 700px) {
+    .ptitTexte {
+        margin-top: 30px;
+    }
+    .chemin > .parent {
+        margin-top: 50px;
+    }
 }
 
 a {
@@ -398,9 +418,9 @@ a {
 }
 
 .soluce {
-    position: absolute;
-    right: 30px;
-    bottom: -150px;
+    position: fixed;
+    left: 45%;
+    bottom: 10px;
 }
 
 .sur {
