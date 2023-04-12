@@ -61,12 +61,14 @@ function showLocation(position) {
     var longitude = position.coords.longitude;
     let cibleX = 47.7449660013797;
     let cibleY = 7.344671658499486;
-    let margeX = (47.745076021031615 - 47.744794658843304);
-    let margeY = (7.344682387330974 - 7.344151309989158);
-    if (latitude > (cibleX - margeX) && latitude < (cibleX + margeX) &&
-        longitude > (cibleY - margeY) && longitude < (cibleY + margeY)) {
+    // let margeX = (47.745076021031615 - 47.744794658843304);
+    // let margeY = (7.344682387330974 - 7.344151309989158);
+    let marge = 0.00031;
+    if (latitude > (cibleX - marge) && latitude < (cibleX + marge) &&
+    longitude > (cibleY - marge) && longitude < (cibleY + marge)) {
         // if (latitude == cibleL && longitude == ciblel) {
         document.querySelector(".btnLien").classList.remove("disparu");
+        window.navigator.vibrate(1000);
     }
 }
 

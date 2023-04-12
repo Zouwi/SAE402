@@ -22,8 +22,8 @@
 
 .pointer {
     position: absolute;
-    right: 10px;
-    bottom: 0px;
+    right: 0%;
+    bottom: -4%;
     width: 50px;
 }
 
@@ -103,7 +103,7 @@
     transition: 1.5s;
 }
 
-.boite {
+.boiteF {
     background: #FFFEF7;
     width: 100%;
     height: 19%;
@@ -119,7 +119,7 @@
     z-index: 2;
 }
 
-.boiteF {
+.boite {
     background: #FFFEF7;
     width: 100%;
     height: 19%;
@@ -143,20 +143,27 @@
     padding: 5px 20px 5px 20px;
     display: inline-block;
     border-radius: 5px;
-    position: fixed;
-    bottom: 195px;
-    left: 20px;
+    position: absolute;
+    top: -15%;
+    left: 10%;
     font-weight: bold;
     z-index: 3;
 }
 
 .texte {
-    padding: 30px;
+    padding: 6%;
     display: none;
+    
+}
+
+@media screen and (max-height: 700px) {
+    .texte, .texteF {
+        font-size: 11pt;
+    }
 }
 
 .texteF {
-    padding: 30px;
+    padding: 6%;
     display: none;
 }
 

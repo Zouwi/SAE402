@@ -15,12 +15,10 @@
 
 .pointer {
     position: absolute;
-    right: 10px;
-    bottom: 0px;
+    right: 0%;
+    bottom: -4%;
     width: 50px;
 }
-
-
 
 .main {
     animation: bouge 1s linear infinite alternate;
@@ -86,7 +84,7 @@
     position: relative;
 }
 
-.boite {
+.boite2 {
     background: #FFFEF7;
     width: 100%;
     height: 19%;
@@ -102,7 +100,7 @@
     z-index: 2;
 }
 
-.boite2 {
+.boite {
     background: #FFFEF7;
     width: 100%;
     height: 19%;
@@ -126,16 +124,23 @@
     padding: 5px 20px 5px 20px;
     display: inline-block;
     border-radius: 5px;
-    position: fixed;
-    bottom: 195px;
-    left: 20px;
+    position: absolute;
+    top: -15%;
+    left: 10%;
     font-weight: bold;
     z-index: 3;
 }
 
 .texte {
-    padding: 30px;
+    padding: 6%;
     display: none;
+    
+}
+
+@media screen and (max-height: 700px) {
+    .texte {
+        font-size: 11pt;
+    }
 }
 
 .orneDore1 {
@@ -249,6 +254,15 @@
     box-shadow: 4px 5px 0px #402505;
 }
 
+@media screen and (max-height: 700px) {
+    .ptitTexte {
+        margin-top: 30px;
+    }
+    .chemin > .parent {
+        margin-top: 0px;
+    }
+}
+
 a {
     text-decoration: none;
 }
@@ -314,9 +328,9 @@ h1 {
 }
 
 .indice {
-    margin: 30px 0px 30px 0px;
+    margin: 20px 0px 0px 0px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     font-family: 'Arvo', serif;
     color: white;
     display: flex;
@@ -325,9 +339,9 @@ h1 {
 
 .parentIndice {
     display: grid;
+    gap: 15px;
     grid-template-rows: 60% auto;
 }
-
 .legend {
     background: #402505;
     padding: 8px;
@@ -404,9 +418,9 @@ h1 {
 
 
 .soluce {
-    position: absolute;
-    right: 30px;
-    bottom: -150px;
+    position: fixed;
+    left: 45%;
+    bottom: 10px;
 }
 
 .sur {
