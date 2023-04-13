@@ -1,3 +1,5 @@
+
+/** Permet de sélectionner tous les tuyaux et de faire fonctionner la fonction de rotation au clic */
 document.querySelectorAll(".pipe").forEach(e=>{
     e.addEventListener("click", rotate);
 });
@@ -52,7 +54,7 @@ function verif(){
     document.querySelectorAll('.juste').forEach(e=>{
         if(e.dataset.juste && e.dataset.num){                    
             if(e.dataset.juste == e.dataset.num){
-                console.log("l'incompétente sait faire copier coller");
+                // console.log("l'incompétente sait faire copier coller");
             }
             else{
                 tableau.push(e);
