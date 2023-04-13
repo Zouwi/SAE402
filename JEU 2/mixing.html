@@ -26,7 +26,8 @@
     .parent1 {
       filter: url(#goo);
       /* background-blend-mode: screen; */
-      margin: 20% 10px 10px 10px;
+      margin: 10px;
+      align-items: end;
       display: flex;
     }
 
@@ -34,13 +35,15 @@
     .parent2 {
       height: 200px;
       /* border: 1px solid #ccc; */
-      
+
       padding: 10px;
     }
 
     .parent2 {
       display: flex;
-      margin: 10px;
+      
+      margin: 20% 10px 10px 10px;
+      transform: translateY(70px);
       justify-content: space-around;
     }
 
@@ -214,6 +217,18 @@
 <body>
 
   <div class="fond">
+    <div class="parent2">
+      <div class="zone zone1 droppable" id="zone1" data-target="div1">
+        <img src="../img/ITEMS/tube.svg" alt="tube_1">
+      </div>
+      <div class="zone zone2 droppable" id="zone2" data-target="div2">
+        <img src="../img/ITEMS/tube.svg" alt="tube_2">
+      </div>
+      <div class="zone zone3 droppable" id="zone3" data-target="div3">
+        <img src="../img/ITEMS/tube.svg" alt="tube_3">
+      </div>
+    </div>
+
     <div class="parent1">
       <div class="drag-element draggable" id="div1" data-target="zone1" style="background-color: #ff595e;"></div>
       <!-- <div class="drag-element draggable" id="div3" data-target="zone3"></div> -->
@@ -228,20 +243,6 @@
       <div class="drag-element draggable" id="div10" data-target="zone3" style="background-color: #292c3e;"></div>
       <!-- <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
       <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div> -->
-
-    </div>
-
-
-    <div class="parent2">
-      <div class="zone zone1 droppable" id="zone1" data-target="div1">
-        <img src="../img/ITEMS/tube.svg" alt="tube_1">
-      </div>
-      <div class="zone zone2 droppable" id="zone2" data-target="div2">
-        <img src="../img/ITEMS/tube.svg" alt="tube_2">
-      </div>
-      <div class="zone zone3 droppable" id="zone3" data-target="div3">
-        <img src="../img/ITEMS/tube.svg" alt="tube_3">
-      </div>
     </div>
 
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -288,7 +289,7 @@
       </div>
       <div class="assombrir"></div>
     </div>
-    
+
   </div>
   <script>
     //   const dragElements = document.querySelectorAll('.drag-element');
