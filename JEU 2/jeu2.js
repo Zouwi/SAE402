@@ -16,14 +16,14 @@ function dialogue() {
     data[compteur].visible.forEach(e => {
         document.querySelector(e).classList.add("devant");
         document.querySelector(e).classList.remove("disparu");
-        setTimeout(() => {
-            document.querySelector(".pharmacy").classList.remove("disparu");
-        }, 1500)
-        setTimeout(() => {
-            document.querySelector(".pharmacy").style.animation="indice 1s forwards";
-        }, 1500)
     });
-        
+
+    if (data[compteur].texte == "Excuse me miss, you don't seem to be from Mulhouse, I think I know where to find what you're looking for. Look over there.") {
+        document.querySelector(".pharmacy").classList.remove("disparu");
+        setTimeout(() => {
+            document.querySelector(".pharmacy").classList.add("anim");
+        }, 1000)
+    }
     // Affichage lettres par lettres 
     let texte = data[compteur].texte;
     let position = 1;

@@ -3,7 +3,6 @@ data = [
         "texte": "Excuse me miss, you don't seem to be from Mulhouse, I think I know where to find what you're looking for. Look over there.",
         "visible": [
             ".oldMan",
-            ".pharmacy"
         ],
         "bulle": "An Old Man"
     },

@@ -209,6 +209,8 @@ h1 {
     margin: 0px;
     background-image: url(img/BACKGROUND/pexels-pixabay-235985.jpg);
     background-position: 0px;
+    position: fixed;
+    top: 0px;
     background-repeat: no-repeat;
 }
 
@@ -278,4 +280,10 @@ a {
     position: fixed;
     top: 30px;
     left: 30px;
+}
+
+@media screen and (max-height: 700px) {
+    .btnMarche {
+        margin-top: 20px;
+    }
 }

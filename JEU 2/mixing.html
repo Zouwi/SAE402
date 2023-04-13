@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game - Mixing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="styleJEU2.css"> -->
+  <style>
+    body {
+      margin: 0;
+      background: url(../img/BACKGROUND/game2.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    .fond {
+      overflow: hidden;
+
+    }
+
+    .parent1 {
+      filter: url(#goo);
+      /* background-blend-mode: screen; */
+
+      display: flex;
+    }
+
+    .parent1,
+    .parent2 {
+      height: 200px;
+      /* border: 1px solid #ccc; */
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .parent2 {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    /* .zone {
+      background: url(./img/tube.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      position: fixed;
+    } */
+
+    .draggable {
+      width: 100px;
+      height: 50px;
+      background-color: #f00;
+      background-blend-mode: screen;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      mix-blend-mode: soft-light;
+    }
+
+    .droppable {
+      width: 90px;
+      height: auto;
+      /* border: 1px dashed #ccc; */
+      text-align: center;
+      line-height: 200px;
+    }
+
+    .droppable>img {
+      width: 100%;
+      height: 100%;
+      z-index: 30;
+      position: relative;
+      pointer-events: none;
+    }
+
+    #drop-zone {
+      filter: url(#goo);
+    }
+
+    /* Boite d'explication  */
+    .parentBoite {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 0;
+    }
+
+    .boite {
+      background: #FFFEF7;
+      width: 100%;
+      height: 23%;
+      border-radius: 5px;
+      text-align: left;
+      border: 3px solid #402505;
+      transition: 1s;
+      position: fixed;
+      bottom: 30px;
+      left: 0px;
+      box-sizing: border-box;
+      font-family: 'Arvo', serif;
+      z-index: 2;
+    }
+
+    .texte {
+      padding: 6%;
+    }
+
+    .orneDore1 {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 113px;
+    }
+
+    .orneDore2 {
+      position: absolute;
+      transform: rotate(180deg);
+      bottom: 0px;
+      left: 0px;
+      width: 113px;
+    }
+
+    ul {
+      padding-left: 30px;
+      margin-top: 15px;
+    }
+
+    /* boite réussite  */
+    .title {
+      font-family: 'cinzel', serif;
+      margin: auto;
+      font-size: 20pt;
+      padding: 20px;
+      text-align: center;
+      color: #a26418;
+    }
+
+    .grosBoite {
+      position: fixed;
+      z-index: 30;
+      width: 100%;
+      height: 100%;
+    }
+
+    .boiteO {
+      background: #FFFEF7;
+      width: 90%;
+      height: auto;
+      border-radius: 5px;
+      text-align: left;
+      border: 3px solid #402505;
+      transition: 1s;
+      position: fixed;
+      top: 180px;
+      left: 20px;
+      box-sizing: border-box;
+      font-family: 'Arvo', serif;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .water {
+      width: 20%;
+      border-radius: 10px;
+      margin: auto;
+    }
+
+    .nomO {
+      text-align: center;
+      margin: 20px;
+      font-family: 'Arvo';
+      color: #402505;
+    }
+
+    .btn {
+      font-family: 'Cinzel', serif;
+      background-color: #f1d293;
+      font-size: 15pt;
+      display: inline-block;
+      padding: 10px 20px 10px 20px;
+      border-radius: 30px;
+      width: 180px;
+      text-align: center;
+      color: #402505;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    .disparu {
+      display: none;
+    }
+
+    .boiteO>a {
+      margin: auto;
+    }
+
+    .assombrir {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(99, 57, 16, 0.307), rgba(62, 4, 4, 0.307));
+      position: fixed;
+      top: 0px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="fond">
+    <div class="parent1">
+      <div class="drag-element draggable" id="div1" data-target="zone1" style="background-color: #ff595e;"></div>
+      <!-- <div class="drag-element draggable" id="div3" data-target="zone3"></div> -->
+      <!-- <div class="drag-element draggable" id="div4" data-target="zone1"></div>
+      <div class="drag-element draggable" id="div5" data-target="zone2"></div>
+      <div class="drag-element draggable" id="div6" data-target="zone3"></div> -->
+      <div class="drag-element draggable" id="div7" data-target="zone2" style="background-color: #1982c4;"></div>
+      <div class="drag-element draggable" id="div2" data-target="zone3" style="background-color: #db2d01;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone3" style="background-color: #c4981f;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone1" style="background-color: #ffc320;"></div>
+      <div class="drag-element draggable" id="div9" data-target="zone2" style="background-color: #e27396;"></div>
+      <div class="drag-element draggable" id="div10" data-target="zone3" style="background-color: #292c3e;"></div>
+      <!-- <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
+      <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div> -->
+
+    </div>
+
+
+    <div class="parent2">
+      <div class="zone zone1 droppable" id="zone1" data-target="div1">
+        <img src="../img/ITEMS/tube.svg" alt="tube_1">
+      </div>
+      <div class="zone zone2 droppable" id="zone2" data-target="div2">
+        <img src="../img/ITEMS/tube.svg" alt="tube_2">
+      </div>
+      <div class="zone zone3 droppable" id="zone3" data-target="div3">
+        <img src="../img/ITEMS/tube.svg" alt="tube_3">
+      </div>
+    </div>
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="20"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 26 -10" result="goo">
+          </feColorMatrix>
+          <!--<feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend>-->
+        </filter>
+      </defs>
+    </svg>
+    <div class="parentBoite">
+      <div class="boite">
+        <div class="texte">
+          Mix the different color powders to obtain three different shades:
+          <ul>
+            <li>
+              First bottle: orange
+            </li>
+            <li>
+              Second bottle: purple
+            </li>
+            <li>
+              third bottle: brown
+            </li>
+          </ul>
+        </div>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <img class="orneDore1" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+        <img class="orneDore2" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+      </div>
+    </div>
+    <div class="grosBoite disparu">
+      <div class="boiteO">
+        <div class="title">Congratulations!</div>
+        <!-- <img class="water" src="../img/ITEMS/bottleWater.png" alt="bottle_water"> -->
+        <div class="nomO">You've created the perfect dye by mixing powders.</div>
+        <a href="afterJEU2.html">
+          <div class="btn">Go back to the apothecary</div>
+        </a>
+        <img class="orneDore1" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+        <img class="orneDore2" src="../img/ACCUEIL/ornement-dore.svg" alt="ornement-dore">
+      </div>
+      <div class="assombrir"></div>
+    </div>
+    
+  </div>
+  <script>
+    //   const dragElements = document.querySelectorAll('.drag-element');
+    // console.log(dragElements);
+    // let verif_fin_jeu=[];
+
+    // // Boucle à travers la liste des éléments et ajoute l'événement pour chaque élément individuellement
+    // dragElements.forEach(function(dragElement) {
+    //     dragElement.addEventListener('mousedown', dragStart);
+
+    //     // Initialise la position de chaque élément
+    //     dragElement.style.transform = `translate3d(0px, 0px, 0)`;
+    // });
+
+    // const dropZones = document.querySelectorAll('.zone');
+    // console.log(dropZones);
+
+    // let isDragging = false;
+    // let currentX;
+    // let currentY;
+    // let initialX;
+    // let initialY;
+    // let xOffset = 0;
+    // let yOffset = 0;
+    // let activeElement = null;
+
+    // function dragStart(e) {
+    //   initialX = e.pageX - xOffset;
+    //   initialY = e.pageY - yOffset;
+
+    //   if (e.target.classList.contains('drag-element')) {
+    //     isDragging = true;
+    //     activeElement = e.target;
+    //   }
+    // }
+
+    // function drag(e) {
+    //   if (isDragging && activeElement !== null) {
+    //     e.preventDefault();
+
+    //     currentX = e.pageX - initialX;
+    //     currentY = e.pageY - initialY;
+
+    //     xOffset = currentX;
+    //     yOffset = currentY;
+
+    //     setTranslate(currentX, currentY, activeElement);
+    //   }
+    // }
+
+    // function dragEnd(e) {
+    //   if (activeElement !== null) {
+    //     initialX = currentX;
+    //     initialY = currentY;
+
+    //     isDragging = false;
+
+    //     if (isDropped(e, activeElement)) {
+
+    //       // activeElement.classList.remove("drag-element");
+    //       xOffset = 0;
+    //       yOffset = 0;
+    //       if(verif_fin_jeu.length==6){
+    //         alert('Bravo, vous avez réussi !');
+    //       }
+    //     } else {
+    //       xOffset = 0;
+    //       yOffset = 0;
+    //       setTranslate(0, 0, activeElement);
+    //     }
+
+    //     activeElement = null;
+
+    //   }
+    // }
+
+    // function setTranslate(xPos, yPos, el) {
+    //   el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    // }
+
+    // function isDropped(e, dragElement) {
+    //   let isCorrectDrop = false;
+    //   for (const dropZone of dropZones) {
+    //     let dropZoneRect = dropZone.getBoundingClientRect();
+    //     let dragElementRect = dragElement.getBoundingClientRect();
+    //       console.log(dropZone.classList.contains(dragElement.dataset.target));
+    //     if (dropZone.classList.contains(dragElement.dataset.target) &&
+    //       dragElementRect.left >= dropZoneRect.left &&
+    //       dragElementRect.right <= dropZoneRect.right &&
+    //       dragElementRect.top >= dropZoneRect.top &&
+    //       dragElementRect.bottom <= dropZoneRect.bottom) {
+    //         isCorrectDrop = true;
+    //         verif_fin_jeu.push(isCorrectDrop);
+    //         return true;
+    //     }
+    //   }
+
+    //   return false;
+    // }
+
+    // // Événement mousemove sur la fenêtre
+    // window.addEventListener('mousemove', drag);
+
+    // // Événement mouseup sur l'élément draggable
+    // window.addEventListener('mouseup', dragEnd);
+
+    // // Événement mouseleave sur l'élément draggable
+    // window.addEventListener('mouseleave', dragEnd);
+
+    const dragElements = document.querySelectorAll('.drag-element');
+    console.log(dragElements);
+    let verif_fin_jeu = [];
+
+    // Boucle à travers la liste des éléments et ajoute l'événement pour chaque élément individuellement
+    dragElements.forEach(function (dragElement) {
+      dragElement.addEventListener('touchstart', dragStart);
+
+      // Initialise la position de chaque élément
+      dragElement.style.transform = `translate3d(0px, 0px, 0)`;
+    });
+
+    const dropZones = document.querySelectorAll('.zone');
+    console.log(dropZones);
+
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+    let activeElement = null;
+    var tableau_verif_zone = {
+      "zone1": [],
+      "zone2": [],
+      "zone3": []
+    }
+    // var zone1=[]
+    // var zone2=[];
+    // var zone3=[];
+
+    console.log(tableau_verif_zone);
+    function dragStart(e) {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+
+      if (e.target.classList.contains('drag-element')) {
+        isDragging = true;
+        activeElement = e.target;
+      }
+    }
+
+    function drag(e) {
+      if (isDragging && activeElement !== null) {
+        e.preventDefault();
+
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, activeElement);
+      }
+    }
+
+    function dragEnd(e) {
+      if (activeElement !== null) {
+        initialX = currentX;
+        initialY = currentY;
+
+        isDragging = false;
+
+        if (isDropped(e, activeElement)) {
+          xOffset = 0;
+          yOffset = 0;
+          if (tableau_verif_zone["zone1"].length == 2 && tableau_verif_zone["zone2"].length == 2 && tableau_verif_zone["zone3"].length == 3) {
+            document.querySelector(".grosBoite").classList.remove("disparu");
+          }
+        } else {
+          xOffset = 0;
+          yOffset = 0;
+          setTranslate(0, 0, activeElement);
+        }
+
+        activeElement = null;
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+
+    function isDropped(e, dragElement) {
+      let isCorrectDrop = false;
+      for (const dropZone of dropZones) {
+        let zone = dropZone.getAttribute("id");
+        let dropZoneRect = dropZone.getBoundingClientRect();
+        let dragElementRect = dragElement.getBoundingClientRect();
+        console.log(dropZone.classList.contains(dragElement.dataset.target));
+        // if (dropZone.classList.contains(dragElement.dataset.target) &&
+        //   dragElementRect.left >= dropZoneRect.left &&
+        //   dragElementRect.right <= dropZoneRect.right &&
+        //   dragElementRect.top >= dropZoneRect.top &&
+        //   dragElementRect.bottom <= dropZoneRect.bottom) {
+        //   isCorrectDrop = true;
+        //   verif_fin_jeu.push(isCorrectDrop);
+        //   return true;
+        // }
+        if (dragElementRect.left >= dropZoneRect.left &&
+          dragElementRect.right <= dropZoneRect.right &&
+          dragElementRect.top >= dropZoneRect.top &&
+          dragElementRect.bottom <= dropZoneRect.bottom) {
+          isCorrectDrop = true;
+          console.log('vérif coordonnées');
+          if (dropZone.classList.contains(dragElement.dataset.target)) {
+            tableau_verif_zone[zone].push(dragElement);
+            // console.log(zone);
+            // console.log(tableau_verif_zone[zone]);
+            // console.log(tableau_verif_zone);  
+          }
+          return true;
+        }
+        else {
+          if (tableau_verif_zone["zone1"].indexOf(dragElement) !== -1) {
+            let index = tableau_verif_zone["zone1"].indexOf(dragElement);
+            tableau_verif_zone["zone1"].splice(index, 1);
+          }
+          if (tableau_verif_zone["zone2"].indexOf(dragElement) !== -1) {
+            let index = tableau_verif_zone["zone2"].indexOf(dragElement);
+            tableau_verif_zone["zone2"].splice(index, 1);
+
+          } if (tableau_verif_zone["zone3"].indexOf(dragElement) !== -1) {
+            let index = tableau_verif_zone["zone3"].indexOf(dragElement);
+            tableau_verif_zone["zone3"].splice(index, 1);
+          }
+        }
+      }
+
+      return false;
+    }
+
+
+    function verif_win() { }
+
+    // Événement touchmove sur la fenêtre
+    window.addEventListener('touchmove', drag);
+
+    // Événement touchend sur l'élément draggable
+    window.addEventListener('touchend', dragEnd);
+
+    // Événement touchcancel sur l'élément draggable
+    window.addEventListener('touchcancel', dragEnd);
+
+  </script>
+</body>
+
+</html>

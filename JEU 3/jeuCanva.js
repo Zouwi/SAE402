@@ -445,8 +445,6 @@ document.querySelector(".btnF").addEventListener("click", () => {
     telecharger();
 })
 
-
-
 // Se déplacer du téléchargement aux crédits 
 document.querySelector(".boiteF").addEventListener("click", () => {
     window.location.href = "afterJEU3.html";

@@ -184,8 +184,16 @@
     border: 3px solid #402505;
 }
 
+.anim {
+    animation: indice 1s forwards;
+}
+
 @keyframes indice {
     0% {
+        top: 0px;
+        right: 0px;
+    }
+    30% {
         top: 0px;
         right: 0px;
     }
@@ -498,6 +506,10 @@ h1 {
     z-index: 5;
     display: grid;
     grid-template-columns: 1fr;
+}
+
+.boiteO>a {
+    margin: auto;
 }
 
 .water {
