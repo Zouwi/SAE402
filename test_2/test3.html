@@ -137,11 +137,11 @@
       <!-- <div class="drag-element draggable" id="div4" data-target="zone1"></div>
       <div class="drag-element draggable" id="div5" data-target="zone2"></div>
       <div class="drag-element draggable" id="div6" data-target="zone3"></div> -->
-      <div class="drag-element draggable" id="div7" data-target="zone1" style="background-color: #1982c4;"></div>
-      <div class="drag-element draggable" id="div2" data-target="zone2" style="background-color: #ff595e;"></div>
-      <div class="drag-element draggable" id="div8" data-target="zone2" style="background-color: #ffca3a;"></div>
-      <div class="drag-element draggable" id="div9" data-target="zone3" style="background-color: #e27396;"></div>
-      <div class="drag-element draggable" id="div10" data-target="zone1" style="background-color: #2b2d42;"></div>
+      <div class="drag-element draggable" id="div7" data-target="zone2" style="background-color: #1982c4;"></div>
+      <div class="drag-element draggable" id="div2" data-target="zone3" style="background-color: #ff595e;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone1" style="background-color: #ffca3a;"></div>
+      <div class="drag-element draggable" id="div9" data-target="zone2" style="background-color: #e27396;"></div>
+      <div class="drag-element draggable" id="div10" data-target="zone3" style="background-color: #2b2d42;"></div>
       <!-- <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
       <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div> -->
 
@@ -381,19 +381,37 @@
         let dropZoneRect = dropZone.getBoundingClientRect();
         let dragElementRect = dragElement.getBoundingClientRect();
         console.log(dropZone.classList.contains(dragElement.dataset.target));
-        if (dropZone.classList.contains(dragElement.dataset.target) &&
-          dragElementRect.left >= dropZoneRect.left &&
+        // if (dropZone.classList.contains(dragElement.dataset.target) &&
+        //   dragElementRect.left >= dropZoneRect.left &&
+        //   dragElementRect.right <= dropZoneRect.right &&
+        //   dragElementRect.top >= dropZoneRect.top &&
+        //   dragElementRect.bottom <= dropZoneRect.bottom) {
+        //   isCorrectDrop = true;
+        //   verif_fin_jeu.push(isCorrectDrop);
+        //   return true;
+        // }
+        if (dragElementRect.left >= dropZoneRect.left &&
           dragElementRect.right <= dropZoneRect.right &&
           dragElementRect.top >= dropZoneRect.top &&
           dragElementRect.bottom <= dropZoneRect.bottom) {
           isCorrectDrop = true;
-          verif_fin_jeu.push(isCorrectDrop);
+          console.log('vérif coordonnées');
+          if (dropZone.classList.contains(dragElement.dataset.target)){
+            
+          //  verif_fin_jeu.push(isCorrectDrop);
+          //  console.log(verif_fin_jeu);
+          //  verif_win();
+          }
+          
           return true;
         }
       }
 
       return false;
     }
+
+
+    function verif_win(){}
 
     // Événement touchmove sur la fenêtre
     window.addEventListener('touchmove', drag);
