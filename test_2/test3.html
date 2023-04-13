@@ -73,6 +73,8 @@
     .droppable>img {
       width: 100%;
       height: 100%;
+      z-index : 30;
+      position : relative;
     }
 
     #drop-zone {
@@ -138,10 +140,11 @@
       <div class="drag-element draggable" id="div5" data-target="zone2"></div>
       <div class="drag-element draggable" id="div6" data-target="zone3"></div> -->
       <div class="drag-element draggable" id="div7" data-target="zone2" style="background-color: #1982c4;"></div>
-      <div class="drag-element draggable" id="div2" data-target="zone3" style="background-color: #ff595e;"></div>
-      <div class="drag-element draggable" id="div8" data-target="zone1" style="background-color: #ffca3a;"></div>
+      <div class="drag-element draggable" id="div2" data-target="zone3" style="background-color: #db2d01;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone3" style="background-color: #c4981f;"></div>
+      <div class="drag-element draggable" id="div8" data-target="zone1" style="background-color: #ffc320;"></div>
       <div class="drag-element draggable" id="div9" data-target="zone2" style="background-color: #e27396;"></div>
-      <div class="drag-element draggable" id="div10" data-target="zone3" style="background-color: #2b2d42;"></div>
+      <div class="drag-element draggable" id="div10" data-target="zone3" style="background-color: #292c3e;"></div>
       <!-- <div class="drag-element draggable" id="div11" data-target="zone2" style="background-color: green;"></div>
       <div class="drag-element draggable" id="div12" data-target="zone3" style="background-color: green;"></div> -->
 
@@ -323,7 +326,16 @@
     let xOffset = 0;
     let yOffset = 0;
     let activeElement = null;
+    var tableau_verif_zone={
+      "zone1":[],
+      "zone2":[],
+      "zone3":[]
+    }
+    // var zone1=[]
+    // var zone2=[];
+    // var zone3=[];
 
+    console.log(tableau_verif_zone);
     function dragStart(e) {
       initialX = e.touches[0].clientX - xOffset;
       initialY = e.touches[0].clientY - yOffset;
@@ -358,7 +370,7 @@
         if (isDropped(e, activeElement)) {
           xOffset = 0;
           yOffset = 0;
-          if (verif_fin_jeu.length == 6) {
+          if (tableau_verif_zone["zone1"].length== 2 && tableau_verif_zone["zone2"].length== 2 && tableau_verif_zone["zone3"].length== 3 ) {
             alert('Bravo, vous avez réussi !');
           }
         } else {
@@ -378,6 +390,7 @@
     function isDropped(e, dragElement) {
       let isCorrectDrop = false;
       for (const dropZone of dropZones) {
+        let zone=dropZone.getAttribute("id");
         let dropZoneRect = dropZone.getBoundingClientRect();
         let dragElementRect = dragElement.getBoundingClientRect();
         console.log(dropZone.classList.contains(dragElement.dataset.target));
@@ -397,13 +410,26 @@
           isCorrectDrop = true;
           console.log('vérif coordonnées');
           if (dropZone.classList.contains(dragElement.dataset.target)){
-            
-          //  verif_fin_jeu.push(isCorrectDrop);
-          //  console.log(verif_fin_jeu);
-          //  verif_win();
+            tableau_verif_zone[zone].push(dragElement);
+            // console.log(zone);
+            // console.log(tableau_verif_zone[zone]);
+            // console.log(tableau_verif_zone);  
           }
-          
-          return true;
+        return true;
+      }
+        else{
+          if(tableau_verif_zone["zone1"].indexOf(dragElement)!==-1){
+            let index = tableau_verif_zone["zone1"].indexOf(dragElement);
+            tableau_verif_zone["zone1"].splice(index, 1);
+          }
+           if(tableau_verif_zone["zone2"].indexOf(dragElement)!==-1){
+            let index = tableau_verif_zone["zone2"].indexOf(dragElement);
+            tableau_verif_zone["zone2"].splice(index, 1);
+           
+          }if(tableau_verif_zone["zone3"].indexOf(dragElement)!==-1){
+            let index = tableau_verif_zone["zone3"].indexOf(dragElement);
+            tableau_verif_zone["zone3"].splice(index, 1);
+          }
         }
       }
 
