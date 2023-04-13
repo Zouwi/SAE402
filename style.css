@@ -133,6 +133,7 @@ h1 {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0 0px;
+    z-index: 5;
 }
 
 .title {
